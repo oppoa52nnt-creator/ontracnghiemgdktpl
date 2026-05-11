@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trắc nghiệm Hiến pháp</title>
+
+<style>
+body{
+    margin:0;
+    padding:20px;
+    background:#0f172a;
+    color:white;
+    font-family:Arial;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    color:#38bdf8;
+}
+
+.top{
+    position:sticky;
+    top:0;
+    background:#0f172a;
+    padding:10px 0;
+    z-index:100;
+}
+
+.score{
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+    margin:10px 0;
+}
+
+.reload{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    margin-bottom:15px;
+}
+
+.question{
+    background:#1e293b;
+    margin-bottom:20px;
+    padding:20px;
+    border-radius:15px;
+}
+
+.question h3{
+    margin-top:0;
+    line-height:1.5;
+}
+
+.answer{
+    width:100%;
+    padding:12px;
+    margin:8px 0;
+    border:none;
+    border-radius:10px;
+    background:#334155;
+    color:white;
+    cursor:pointer;
+    text-align:left;
+    font-size:15px;
+    transition:0.2s;
+}
+
+.answer:hover{
+    background:#475569;
+}
+
+.correct{
+    background:#16a34a !important;
+}
+
+.wrong{
+    background:#dc2626 !important;
+}
+
+.result{
+    margin-top:10px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>TRẮC NGHIỆM HIẾN PHÁP</h1>
+
+    <div class="top">
+        <button class="reload" onclick="reloadQuiz()">
+            Làm lại / Đổi thứ tự câu
+        </button>
+
+        <div class="score" id="score">
+            Điểm: 0/33
+        </div>
+    </div>
+
+    <div id="quiz"></div>
+
+</div>
+
+<script>
+
+const questions = [
+
+{
+q:"Hệ thống các quy phạm pháp luật có hiệu lực pháp lí cao nhất quy định những vấn đề cơ bản nhất của quốc gia là gì?",
+a:["Hiến pháp","Luật hành chính","Luật lao động","Luật hình sự"],
+correct:0
+},
+
+{
+q:"Văn bản pháp luật nào được coi là Luật cơ bản của nhà nước?",
+a:["Hiến pháp","Luật nhà nước","Luật tổ chức Quốc hội","Luật tổ chức Hội đồng nhân dân"],
+correct:0
+},
+
+{
+q:"Trong hệ thống pháp luật Việt Nam, văn bản pháp luật nào có giá trị pháp lí cao nhất?",
+a:["Hiến pháp","Luật nhà nước","Luật tổ chức Quốc hội","Luật tổ chức Hội đồng nhân dân"],
+correct:0
+},
+
+{
+q:"Trong hệ thống pháp luật Việt Nam, Hiến pháp là văn bản pháp luật có giá trị pháp lí như thế nào?",
+a:["Cao nhất","Thấp nhất","Vĩnh cửu","Vĩnh viễn"],
+correct:0
+},
+
+{
+q:"Hiến pháp đầu tiên của nước ta được ban hành vào năm nào?",
+a:["1946","1945","1947","1950"],
+correct:0
+},
+
+{
+q:"Bản Hiến pháp hiện hành của nước ta là năm nào?",
+a:["2013","1980","1992","2001"],
+correct:0
+},
+
+{
+q:"Hiến pháp nước CHXHCN Việt Nam là văn bản quy phạm pháp luật do ai ban hành?",
+a:["Chủ tịch nước","Quốc hội","Thủ tướng","Mặt trận Tổ quốc"],
+correct:1
+},
+
+{
+q:"Hiến pháp nước CHXHCN Việt Nam quy định những vấn đề nào?",
+a:["Cơ bản và quan trọng nhất","Cơ bản và cụ thể hóa mọi vấn đề","Quan trọng nhất đối với ngân sách","Quan trọng nhất đối với Đảng"],
+correct:0
+},
+
+{
+q:"Trong lịch sử lập hiến, Việt Nam đã ban hành các bản Hiến pháp nào?",
+a:["1946,1959,1980,1992,2013","1946,1960,1980,1992,2013","1946,1959,1981,1992,2013","1946,1959,1980,1993,2013"],
+correct:0
+},
+
+{
+q:"Hiến pháp năm 2013 có bao nhiêu chương và điều?",
+a:["11 chương, 120 điều","12 chương, 121 điều","13 chương, 122 điều","14 chương, 123 điều"],
+correct:0
+},
+
+{
+q:"Mọi văn bản quy phạm pháp luật không phù hợp với Hiến pháp sẽ bị gì?",
+a:["Hủy bỏ","Tiếp tục","Giữ nguyên","Thực hiện"],
+correct:0
+},
+
+{
+q:"Quyền bất khả xâm phạm về thân thể thể hiện đặc điểm nào của Hiến pháp?",
+a:["Tính ổn định lâu dài","Bảo vệ quyền con người","Hiệu lực lâu dài","Quy trình sửa đổi đặc biệt"],
+correct:1
+},
+
+{
+q:"Nhà nước tổ chức hoạt động theo Hiến pháp và pháp luật thể hiện đặc điểm nào?",
+a:["Tính ổn định lâu dài","Nguyên tắc tổ chức bộ máy nhà nước","Hiệu lực pháp lí lâu dài","Quy trình sửa đổi đặc biệt"],
+correct:1
+},
+
+{
+q:"Căn cứ Hiến pháp, Quốc hội ban hành Bộ luật Lao động 2019 thể hiện điều gì?",
+a:["Ban hành các văn bản pháp luật khác","Cụ thể hóa luật khác","Xử phạt vi phạm","Dung hòa quan hệ xã hội"],
+correct:0
+},
+
+{
+q:"Hiến pháp là văn bản quy phạm pháp luật có hiệu lực như thế nào?",
+a:["Luật cơ bản, cao nhất","Luật thấp nhất","Bộ luật cao nhất","Luật bình thường"],
+correct:0
+},
+
+{
+q:"Quyền hiến mô, bộ phận cơ thể thuộc nhóm quyền nào?",
+a:["Quyền giáo dục","Quyền con người","Quyền kinh tế","Quyền đi học"],
+correct:1
+},
+
+{
+q:"Hành vi nào không tuân theo Hiến pháp?",
+a:["Đi nghĩa vụ quân sự","Đóng thuế đầy đủ","Tham gia bầu cử","Tham gia tệ nạn"],
+correct:3
+},
+
+{
+q:"Nội dung nào nói về vai trò của Hiến pháp?",
+a:["Là đạo luật cơ bản của Nhà nước","Văn bản mang tính biểu tượng","Công cụ hành pháp","Công cụ tư pháp"],
+correct:0
+},
+
+{
+q:"Nội dung nào không phù hợp với Hiến pháp 2013?",
+a:["Hiến pháp ngang bằng luật khác","Học sinh phải tuân thủ Hiến pháp","Văn bản sai Hiến pháp phải sửa","Hiến pháp bảo vệ quyền con người"],
+correct:0
+},
+
+{
+q:"Hiến pháp Việt Nam không có đặc điểm nào?",
+a:["Là luật cơ bản","Quy định nguyên tắc tổ chức bộ máy","Hiệu lực pháp lí cao nhất","Ngang bằng các luật khác"],
+correct:3
+},
+
+{
+q:"Chủ thể nào có trách nhiệm bảo vệ Hiến pháp?",
+a:["Cán bộ công chức","Người đủ 18 tuổi","Mọi công dân","Người đủ 15 tuổi"],
+correct:2
+},
+
+{
+q:"Hiến pháp không có đặc điểm nào dưới đây?",
+a:["Luật cơ bản","Hiệu lực pháp lí cao nhất","Quy định vấn đề quan trọng","Quy định chi tiết hợp đồng lao động"],
+correct:3
+},
+
+{
+q:"Các văn bản pháp luật khác cần ban hành như thế nào với Hiến pháp?",
+a:["Phù hợp địa phương","Không trái Hiến pháp","Độc lập với Hiến pháp","Dựa thay đổi Hiến pháp"],
+correct:1
+},
+
+{
+q:"Nội dung nào phản ánh đúng đặc điểm của Hiến pháp?",
+a:["Do Quốc hội ban hành","Do Nhà nước ban hành","Do Chính phủ thực hiện","Thể hiện ý chí nông dân"],
+correct:0
+},
+
+{
+q:"Hành vi nào không tuân thủ Hiến pháp?",
+a:["Tạo điều kiện doanh nghiệp","Phòng chống tham nhũng","Xả rác môi trường","Tuyên truyền chính sách"],
+correct:2
+},
+
+{
+q:"Nội dung nào không nói về vị trí của Hiến pháp?",
+a:["Quy định vấn đề cơ bản","Hiệu lực cao nhất","Mọi văn bản phải phù hợp","Văn bản khác độc lập với Hiến pháp"],
+correct:3
+},
+
+{
+q:"Hiến pháp quy định nội dung nào?",
+a:["Từng vấn đề cụ thể","Vấn đề cấp bách","Những vấn đề cơ bản nhất","Mọi vấn đề cụ thể"],
+correct:2
+},
+
+{
+q:"Hành vi nào thực hiện nghĩa vụ tuân thủ Hiến pháp?",
+a:["Không nộp thuế","Tự giác thực hiện quy định","Chống phá Nhà nước","Khai thác trái phép"],
+correct:1
+},
+
+{
+q:"Khẳng định nào đúng về Hiến pháp?",
+a:["Quy định vấn đề cơ bản nhất","Chỉ áp dụng cho một số chủ thể","Hiệu lực từng hoàn cảnh","Theo ý chí riêng giai cấp"],
+correct:0
+},
+
+{
+q:"Việc làm nào thể hiện trách nhiệm công dân?",
+a:["Tuyên truyền chống phá","Xuyên tạc chính sách","Đấu tranh ngăn hành vi phản động","Gây rối an ninh"],
+correct:2
+},
+
+{
+q:"Việc làm nào không thể hiện trách nhiệm công dân?",
+a:["Tìm hiểu Hiến pháp","Tự giác thực hiện","Đấu tranh chống vi phạm","Ủng hộ chống phá Nhà nước"],
+correct:3
+},
+
+{
+q:"Điểm khác biệt cơ bản giữa Hiến pháp và luật khác?",
+a:["Chủ thể ban hành","Đối tượng thực hiện","Đối tượng điều chỉnh","Người công bố"],
+correct:2
+},
+
+{
+q:"Hiến pháp không quy định nội dung nào?",
+a:["Quan hệ xã hội chủ đạo","Chế độ chính trị","Vấn đề cơ bản nhất","Chi tiết từng ngành"],
+correct:3
+},
+
+{
+q:"Vì sao luật khác không được trái Hiến pháp?",
+a:["Do Quốc hội ban hành","Là đạo luật cơ bản nhất","Do Chủ tịch nước công bố","Do Chính phủ tổ chức"],
+correct:1
+}
+
+];
+
+function shuffle(array){
+    return array.sort(() => Math.random() - 0.5);
+}
+
+let score = 0;
+let answered = 0;
+
+function loadQuiz(){
+
+    const quiz = document.getElementById("quiz");
+    quiz.innerHTML = "";
+
+    score = 0;
+    answered = 0;
+
+    document.getElementById("score").innerText = "Điểm: 0/33";
+
+    let shuffled = shuffle([...questions]);
+
+    shuffled.forEach((item,index)=>{
+
+        const div = document.createElement("div");
+        div.className = "question";
+
+        div.innerHTML = `
+        <h3>Câu ${index+1}: ${item.q}</h3>
+        `;
+
+        item.a.forEach((answer,i)=>{
+
+            const btn = document.createElement("button");
+            btn.className = "answer";
+            btn.innerText = String.fromCharCode(65+i)+". "+answer;
+
+            btn.onclick = function(){
+
+                if(div.dataset.done) return;
+
+                div.dataset.done = true;
+
+                answered++;
+
+                const buttons = div.querySelectorAll(".answer");
+
+                if(i === item.correct){
+
+                    btn.classList.add("correct");
+
+                    div.innerHTML += `
+                    <div class="result" style="color:#4ade80">
+                    Đúng
+                    </div>
+                    `;
+
+                    score++;
+
+                }else{
+
+                    btn.classList.add("wrong");
+
+                    buttons[item.correct].classList.add("correct");
+
+                    div.innerHTML += `
+                    <div class="result" style="color:#f87171">
+                    Sai — Đáp án đúng:
+                    ${String.fromCharCode(65+item.correct)}.
+                    ${item.a[item.correct]}
+                    </div>
+                    `;
+                }
+
+                document.getElementById("score").innerText =
+                "Điểm: "+score+"/33";
+
+                if(answered === 33){
+
+                    setTimeout(()=>{
+                        alert("Hoàn thành! Bạn đúng "+score+"/33 câu");
+                    },300);
+
+                }
+
+            };
+
+            div.appendChild(btn);
+
+        });
+
+        quiz.appendChild(div);
+
+    });
+
+}
+
+function reloadQuiz(){
+    loadQuiz();
+    window.scrollTo(0,0);
+}
+
+loadQuiz();
+
+</script>
+
+</body>
+</html>
