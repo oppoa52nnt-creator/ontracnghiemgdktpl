@@ -1,1314 +1,872 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>100 CÂU HỎI TRẮC NGHIỆM ĐỊA LÝ 11 (BÀI 4, 6, 7)</title>
-    <style>
-        body {
-            font-family: "Times New Roman", Times, serif;
-            line-height: 1.4;
-            margin: 30px;
-            color: #000;
-            background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1 {
-            text-align: center;
-            font-size: 18pt;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        h2 {
-            text-align: center;
-            font-size: 13pt;
-            font-weight: normal;
-            margin-top: 0;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-        .section-title {
-            font-weight: bold;
-            font-size: 13pt;
-            margin-top: 25px;
-            margin-bottom: 12px;
-            border-bottom: 2px solid #000;
-            padding-bottom: 4px;
-            text-transform: uppercase;
-        }
-        .question-box {
-            margin-bottom: 14px;
-            page-break-inside: avoid;
-        }
-        .question-text {
-            font-weight: bold;
-            margin-bottom: 4px;
-        }
-        .options {
-            margin-left: 20px;
-        }
-        .option {
-            margin-bottom: 2px;
-        }
-        .print-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 12px 24px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        .print-button:hover {
-            background-color: #0056b3;
-        }
-        .quiz-controls {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 12px;
-            margin: 24px 0;
-            padding: 16px;
-            background: #eef4ff;
-            border-radius: 8px;
-        }
-        .quiz-controls button {
-            padding: 10px 16px;
-            color: #fff;
-            background: #1769aa;
-            border: 0;
-            border-radius: 5px;
-            cursor: pointer;
-            font: inherit;
-        }
-        .quiz-controls button:hover { background: #0d4f83; }
-        .quiz-controls label { cursor: pointer; }
-        #progress { margin-left: auto; font-weight: bold; }
-        .quiz-question { margin: 18px 0; }
-        .quiz-question .question-text { margin-bottom: 8px; }
-        .quiz-options { display: grid; gap: 7px; }
-        .quiz-option {
-            padding: 9px 12px;
-            text-align: left;
-            font: inherit;
-            color: #111;
-            background: #fff;
-            border: 1px solid #cbd3dc;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .quiz-option:hover:not(:disabled) { background: #f0f6fc; }
-        .quiz-option:disabled { cursor: default; opacity: 1; }
-        .quiz-option.correct { color: #155724; background: #d4edda; border-color: #28a745; }
-        .quiz-option.incorrect { color: #721c24; background: #f8d7da; border-color: #dc3545; }
-        .answer-feedback { min-height: 1.4em; margin: 6px 0 0 20px; font-weight: bold; }
-        #result {
-            margin: 24px 0;
-            padding: 18px;
-            text-align: center;
-            background: #fff3cd;
-            border-radius: 8px;
-            font-size: 1.15em;
-        }
-        @media (max-width: 600px) {
-            body { margin: 10px; padding: 0; }
-            .container { padding: 20px; }
-            #progress { width: 100%; margin-left: 0; }
-        }
-        @media print {
-            body {
-                background-color: #fff;
-                margin: 0;
-            }
-            .container {
-                box-shadow: none;
-                padding: 0;
-                width: 100%;
-                max-width: 100%;
-            }
-            .print-button {
-                display: none;
-            }
-        }
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ôn thi trắc nghiệm</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1d2230;--mu:#6b7385;--bd:#dde1ea;--pr:#4361ee;--ok:#1b9e5a;--okb:#e3f6ec;--no:#d93a3a;--nob:#fde8e8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12141b;--card:#1b1f2a;--tx:#e8ebf3;--mu:#9099ae;--bd:#2d3342;--pr:#7b93ff;--ok:#43c985;--okb:#15332393;--no:#ff6b6b;--nob:#3a1d1f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#12141b;--card:#1b1f2a;--tx:#e8ebf3;--mu:#9099ae;--bd:#2d3342;--pr:#7b93ff;--ok:#43c985;--okb:#15332393;--no:#ff6b6b;--nob:#3a1d1f;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:1.4rem;margin:0 0 4px}.mu{color:var(--mu);font-size:.9rem}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;margin-top:14px}
+textarea{width:100%;min-height:200px;border:1px solid var(--bd);border-radius:10px;padding:10px;background:var(--bg);color:var(--tx);font:14px/1.5 ui-monospace,Menlo,Consolas,monospace;resize:vertical}
+label.ck{display:flex;gap:8px;align-items:center;margin:8px 0;cursor:pointer}
+button{font:inherit;border:0;border-radius:10px;padding:10px 18px;background:var(--pr);color:#fff;cursor:pointer;font-weight:600}
+button.sec{background:transparent;color:var(--pr);border:1px solid var(--pr)}
+button:disabled{opacity:.4;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.bar{height:8px;background:var(--bd);border-radius:99px;overflow:hidden;margin:8px 0}
+.bar i{display:block;height:100%;background:var(--pr);transition:width .3s}
+.q{font-size:1.1rem;font-weight:600;margin:6px 0 14px}
+.opt{display:flex;gap:12px;width:100%;text-align:left;background:var(--card);color:var(--tx);border:1.5px solid var(--bd);margin-bottom:10px;font-weight:400;padding:12px 14px}
+.opt b{min-width:24px;color:var(--pr)}
+.opt:hover:not(:disabled){border-color:var(--pr)}
+.opt.ok{background:var(--okb);border-color:var(--ok)}.opt.no{background:var(--nob);border-color:var(--no)}
+.opt:disabled{opacity:1;cursor:default}
+.fb{margin:6px 0;font-weight:600}.fb.ok{color:var(--ok)}.fb.no{color:var(--no)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:12px}
+.st{border:1px solid var(--bd);border-radius:12px;padding:12px;text-align:center}
+.st strong{display:block;font-size:1.5rem}
+.big{font-size:2.6rem;font-weight:700;text-align:center;color:var(--pr)}
+.rv{border-top:1px solid var(--bd);padding:12px 0}.rv:first-child{border:0}
+body{padding-bottom:76px}
+footer{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--card);border-top:1px solid var(--bd);padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px))}
+.fi{max-width:720px;margin:0 auto;display:flex;justify-content:space-around;gap:8px;text-align:center}
+.fi div{flex:1}.fi strong{display:block;font-size:1.15rem}.fi span{font-size:.75rem;color:var(--mu)}
+.fi .g strong{color:var(--ok)}.fi .r strong{color:var(--no)}
+.hide{display:none}
+</style>
 </head>
 <body>
-
-
-
-<div class="container">
-    <h1>BỘ 100 CÂU HỎI TRẮC NGHIỆM ĐỊA LÝ 11</h1>
-    <h2>(Ôn tập kiến thức Bài 4, Bài 6 và Bài 7)</h2>
-
-    <div class="quiz-controls">
-        <button id="reset-quiz" type="button">🔀 Làm mới &amp; xáo trộn</button>
-        <label><input id="shuffle-questions" type="checkbox" checked> Xáo trộn câu hỏi</label>
-        <label><input id="shuffle-options" type="checkbox" checked> Xáo trộn đáp án</label>
-        <span id="progress" aria-live="polite"></span>
-    </div>
-    <div id="result" hidden aria-live="polite"></div>
-    <div id="quiz-content"></div>
-
-    <div class="section-title">PHẦN 1: BÀI 4 - MỘT SỐ TỔ CHỨC QUỐC TẾ VÀ KHU VỰC, AN NINH TOÀN CẦU VÀ BẢO VỆ HÒA BÌNH (CÂU 1 - 35)</div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 1: Liên hợp quốc (UN) được thành lập vào năm nào?</div>
-        <div class="options">
-            <div class="option">A. 1944</div>
-            <div class="option"><b>B. 1945</b></div>
-            <div class="option">C. 1976</div>
-            <div class="option">D. 1977</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 2: Tính đến năm 2021, Liên hợp quốc có bao nhiêu quốc gia thành viên?</div>
-        <div class="options">
-            <div class="option">A. 164</div>
-            <div class="option">B. 190</div>
-            <div class="option"><b>C. 193</b></div>
-            <div class="option">D. 21</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 3: Việt Nam chính thức gia nhập Liên hợp quốc vào năm nào?</div>
-        <div class="options">
-            <div class="option">A. 1945</div>
-            <div class="option"><b>B. 1977</b></div>
-            <div class="option">C. 1995</div>
-            <div class="option">D. 2007</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 4: Tôn chỉ hoạt động ban đầu khi thành lập Liên hợp quốc là gì?</div>
-        <div class="options">
-            <div class="option"><b>A. Bảo đảm hòa bình và trật tự thế giới bền vững.</b></div>
-            <div class="option">B. Thiết lập nền thương mại tự do toàn cầu.</div>
-            <div class="option">C. Hỗ trợ tài chính cho các nước đang phát triển.</div>
-            <div class="option">D. Thúc đẩy tự do đầu tư châu Á - Thái Bình Dương.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 5: Tổ chức Thương mại Thế giới (WTO) chính thức thành lập và hoạt động từ năm nào?</div>
-        <div class="options">
-            <div class="option">A. 1944</div>
-            <div class="option">B. 1989</div>
-            <div class="option"><b>C. 1995</b></div>
-            <div class="option">D. 2007</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 6: Tính đến năm 2021, Tổ chức Thương mại Thế giới (WTO) có bao nhiêu thành viên?</div>
-        <div class="options">
-            <div class="option">A. 150</div>
-            <div class="option"><b>B. 164</b></div>
-            <div class="option">C. 190</div>
-            <div class="option">D. 193</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 7: Việt Nam trở thành thành viên thứ 150 của WTO vào năm nào?</div>
-        <div class="options">
-            <div class="option">A. 1995</div>
-            <div class="option">B. 1998</div>
-            <div class="option"><b>C. 2007</b></div>
-            <div class="option">D. 2021</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 8: Quỹ Tiền tệ Quốc tế (IMF) được thành lập vào năm nào?</div>
-        <div class="options">
-            <div class="option"><b>A. 1944</b></div>
-            <div class="option">B. 1945</div>
-            <div class="option">C. 1976</div>
-            <div class="option">D. 1989</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 9: Việt Nam trở thành thành viên của IMF từ năm nào?</div>
-        <div class="options">
-            <div class="option">A. 1945</div>
-            <div class="option"><b>B. 1976</b></div>
-            <div class="option">C. 1977</div>
-            <div class="option">D. 1998</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 10: Tính đến năm 2021, Quỹ Tiền tệ Quốc tế (IMF) có bao nhiêu thành viên?</div>
-        <div class="options">
-            <div class="option">A. 164</div>
-            <div class="option"><b>B. 190</b></div>
-            <div class="option">C. 193</div>
-            <div class="option">D. 21</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 11: Diễn đàn Hợp tác Kinh tế châu Á - Thái Bình Dương (APEC) thành lập năm nào?</div>
-        <div class="options">
-            <div class="option">A. 1977</div>
-            <div class="option"><b>B. 1989</b></div>
-            <div class="option">C. 1995</div>
-            <div class="option">D. 1998</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 12: APEC hiện bao gồm bao nhiêu nền kinh tế thành viên?</div>
-        <div class="options">
-            <div class="option"><b>A. 21</b></div>
-            <div class="option">B. 150</div>
-            <div class="option">C. 164</div>
-            <div class="option">D. 190</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 13: Việt Nam chính thức tham gia APEC vào năm nào?</div>
-        <div class="options">
-            <div class="option">A. 1977</div>
-            <div class="option">B. 1995</div>
-            <div class="option"><b>C. 1998</b></div>
-            <div class="option">D. 2007</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 14: Khái niệm "An ninh toàn cầu" được hiểu là:</div>
-        <div class="options">
-            <div class="option"><b>A. Trạng thái bình yên, ổn định và hòa bình của toàn thế giới.</b></div>
-            <div class="option">B. Việc không xảy ra xung đột quân sự giữa các nước lớn.</div>
-            <div class="option">C. Sự hợp tác thương mại không rào cản thuế quan.</div>
-            <div class="option">D. Sự phát triển mạnh mẽ của khoa học công nghệ quốc phòng.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 15: Nhân tố quan trọng nhất để bảo đảm an ninh toàn cầu là:</div>
-        <div class="options">
-            <div class="option">A. Phát triển vũ khí hiện đại.</div>
-            <div class="option"><b>B. Đảm bảo an ninh con người.</b></div>
-            <div class="option">C. Tăng trưởng kinh tế thần tốc.</div>
-            <div class="option">D. Mở rộng biên giới lãnh thổ.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 16: An ninh truyền thống liên quan chủ yếu đến các vấn đề nào?</div>
-        <div class="options">
-            <div class="option"><b>A. An ninh chính trị và quân sự (khủng bố, chiến tranh, xung đột).</b></div>
-            <div class="option">B. An ninh lương thực và nguồn nước.</div>
-            <div class="option">C. An ninh năng lượng và tài chính.</div>
-            <div class="option">D. An ninh mạng và dịch bệnh.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 17: Yếu tố nào sau đây thuộc về an ninh phi truyền thống?</div>
-        <div class="options">
-            <div class="option">A. Xung đột vũ trang biên giới.</div>
-            <div class="option">B. Chiến tranh cục bộ.</div>
-            <div class="option"><b>C. An ninh lương thực và an ninh mạng.</b></div>
-            <div class="option">D. Cuộc tấn công quân sự xâm lược.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 18: An ninh lương thực là việc đảm bảo cho mọi người:</div>
-        <div class="options">
-            <div class="option"><b>A. Có quyền tiếp cận nguồn lương thực đầy đủ, an toàn để sống khỏe mạnh.</b></div>
-            <div class="option">B. Được phát lương thực miễn phí hàng ngày từ chính phủ.</div>
-            <div class="option">C. Tự sản xuất đủ lương thực cho nhu cầu cá nhân.</div>
-            <div class="option">D. Chỉ tiêu dùng thực phẩm nhập khẩu chất lượng cao.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 19: Nguyên nhân nào KHÔNG trực tiếp đe dọa an ninh lương thực toàn cầu?</div>
-        <div class="options">
-            <div class="option">A. Biến đổi khí hậu và thiên tai.</div>
-            <div class="option">B. Xung đột vũ trang và chiến tranh.</div>
-            <div class="option"><b>C. Ứng dụng công nghệ cao vào nông nghiệp.</b></div>
-            <div class="option">D. Dịch bệnh làm gián đoạn chuỗi cung ứng.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 20: Tên viết tắt của Tổ chức Lương thực và Nông nghiệp Liên hợp quốc là:</div>
-        <div class="options">
-            <div class="option"><b>A. FAO</b></div>
-            <div class="option">B. WEP</div>
-            <div class="option">C. WBG</div>
-            <div class="option">D. IMF</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 21: Tên viết tắt của Chương trình Lương thực Thế giới là:</div>
-        <div class="options">
-            <div class="option">A. FAO</div>
-            <div class="option"><b>B. WEP</b></div>
-            <div class="option">C. WBG</div>
-            <div class="option">D. WTO</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 22: Giải pháp căn cơ để các nước chủ động đảm bảo an ninh lương thực là:</div>
-        <div class="options">
-            <div class="option">A. Trông chờ vào viện trợ quốc tế.</div>
-            <div class="option"><b>B. Đẩy mạnh sản xuất, đầu tư vào nông nghiệp bền vững.</b></div>
-            <div class="option">C. Tăng cường nhập khẩu lương thực thô.</div>
-            <div class="option">D. Chuyển toàn bộ đất nông nghiệp sang công nghiệp.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 23: An ninh năng lượng là sự đảm bảo đầy đủ năng lượng cho:</div>
-        <div class="options">
-            <div class="option"><b>A. Nhu cầu con người và các hoạt động kinh tế - xã hội.</b></div>
-            <div class="option">B. Hoạt động của các quân đội quốc gia.</div>
-            <div class="option">C. Mục đích xuất khẩu nhiên liệu thô.</div>
-            <div class="option">D. Việc vận hành các nhà máy nhiệt điện than.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 24: Một trong những giải pháp hàng đầu để bảo đảm an ninh năng lượng bền vững là:</div>
-        <div class="options">
-            <div class="option">A. Tăng khai thác tối đa nguồn nhiên liệu hóa thạch.</div>
-            <div class="option"><b>B. Đẩy mạnh tiết kiệm và phát triển năng lượng tái tạo.</b></div>
-            <div class="option">C. Cắt giảm hoạt động sản xuất công nghiệp.</div>
-            <div class="option">D. Nhập khẩu điện năng từ quốc gia khác.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 25: Tổ chức các nước xuất khẩu dầu mỏ có tên viết tắt là:</div>
-        <div class="options">
-            <div class="option">A. APEC</div>
-            <div class="option"><b>B. OPEC</b></div>
-            <div class="option">C. WTO</div>
-            <div class="option">D. FAO</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 26: Nội dung nào KHÔNG đúng khi nói về an ninh nguồn nước?</div>
-        <div class="options">
-            <div class="option">A. Đảm bảo số lượng và chất lượng nước phục vụ sinh hoạt.</div>
-            <div class="option">B. Ứng phó hiệu quả với thảm họa thiên tai liên quan đến nước.</div>
-            <div class="option"><b>C. Khai thác kiệt quệ nguồn nước ngầm để đáp ứng công nghiệp.</b></div>
-            <div class="option">D. Hợp tác kiểm soát nguồn tài nguyên nước chung.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 27: Vấn đề an ninh nguồn nước ngày càng căng thẳng do nguyên nhân chính nào?</div>
-        <div class="options">
-            <div class="option"><b>A. Sử dụng lãng phí, ô nhiễm môi trường và biến đổi khí hậu.</b></div>
-            <div class="option">B. Sự tích tụ nước quá lớn ở các đập thủy điện.</div>
-            <div class="option">C. Nhu cầu sử dụng nước cho nông nghiệp giảm.</div>
-            <div class="option">D. Mạng lưới sông ngòi toàn cầu thu hẹp tự nhiên.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 28: An ninh mạng là sự đảm bảo các hoạt động trên không gian mạng:</div>
-        <div class="options">
-            <div class="option"><b>A. Không gây hại đến an ninh quốc gia, trật tự và quyền lợi hợp pháp.</b></div>
-            <div class="option">B. Được tự do hoàn toàn không chịu sự quản lý của pháp luật.</div>
-            <div class="option">C. Chỉ dành riêng cho các cơ quan chính phủ sử dụng.</div>
-            <div class="option">D. Tự động loại bỏ mọi mã độc từ quốc tế.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 29: Thách thức lớn nhất của an ninh mạng hiện nay là:</div>
-        <div class="options">
-            <div class="option">A. Chi phí mua thiết bị máy tính quá đắt đỏ.</div>
-            <div class="option"><b>B. Hoạt động diễn biến nhanh, phức tạp, tác động đa chiều.</b></div>
-            <div class="option">C. Thiếu lực lượng kĩ sư phần mềm trên thế giới.</div>
-            <div class="option">D. Tốc độ truyền tải internet toàn cầu quá chậm.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 30: Để bảo vệ an ninh mạng hiệu quả, các quốc gia cần:</div>
-        <div class="options">
-            <div class="option"><b>A. Ban hành chiến lược, luật an ninh mạng và hợp tác quốc tế.</b></div>
-            <div class="option">B. Cắt đứt kết nối internet quốc tế.</div>
-            <div class="option">C. Cấm người dân sử dụng mạng xã hội.</div>
-            <div class="option">D. Phá hủy các trung tâm dữ liệu công nghệ.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 31: Khái niệm "Hòa bình" được hiểu là:</div>
-        <div class="options">
-            <div class="option"><b>A. Sự bình yên, tự do, hạnh phúc giữa con người và các quốc gia.</b></div>
-            <div class="option">B. Trạng thái tạm ngưng bắn giữa hai phe chiến tranh.</div>
-            <div class="option">C. Sự phục tùng của các nước nhỏ trước nước lớn.</div>
-            <div class="option">D. Việc duy trì lực lượng quân đội hùng mạnh.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 32: Vấn đề nào sau đây ĐANG đe dọa trực tiếp đến hòa bình thế giới hiện nay?</div>
-        <div class="options">
-            <div class="option">A. Mở rộng giao lưu văn hóa quốc tế.</div>
-            <div class="option"><b>B. Xung đột vũ trang, tranh chấp biên giới lãnh thổ, đói nghèo.</b></div>
-            <div class="option">C. Thúc đẩy tự do hóa thương mại toàn cầu.</div>
-            <div class="option">D. Ký kết các hiệp định kinh tế song phương.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 33: Nguyên tắc tối cao trong đối thoại giải quyết tranh chấp bảo vệ hòa bình là:</div>
-        <div class="options">
-            <div class="option"><b>A. Tôn trọng chủ quyền, quyền tự chủ và pháp luật quốc tế.</b></div>
-            <div class="option">B. Dùng sức mạnh quân sự để răn đe.</div>
-            <div class="option">C. Áp đặt mong muốn của phe đa số.</div>
-            <div class="option">D. Can thiệp nội bộ để thay đổi chính quyền.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 34: Giữ vững hòa bình thế giới sẽ tạo điều kiện trực tiếp để:</div>
-        <div class="options">
-            <div class="option"><b>A. Giải quyết các vấn đề an ninh toàn cầu và phát triển thịnh vượng.</b></div>
-            <div class="option">B. Gia tăng ngân sách chạy đua vũ trang.</div>
-            <div class="option">C. Triệt tiêu cạnh tranh kinh tế giữa các nước.</div>
-            <div class="option">D. Xóa bỏ ranh giới địa lý quốc gia.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 35: Tổ chức nào giữ vai trò trung tâm trong việc điều hòa các nỗ lực quốc tế vì hòa bình?</div>
-        <div class="options">
-            <div class="option"><b>A. Liên hợp quốc (UN)</b></div>
-            <div class="option">B. WTO</div>
-            <div class="option">C. APEC</div>
-            <div class="option">D. IMF</div>
-        </div>
-    </div>
-
-    <div class="section-title">PHẦN 2: BÀI 6 - VỊ TRÍ ĐỊA LÍ, ĐIỀU KIỆN TỰ NHIÊN, DÂN CƯ VÀ XÃ HỘI MỸ LA-TINH (CÂU 36 - 70)</div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 36: Lãnh thổ Mỹ La-tinh có diện tích khoảng:</div>
-        <div class="options">
-            <div class="option">A. 10 triệu km²</div>
-            <div class="option">B. 15 triệu km²</div>
-            <div class="option"><b>C. 20 triệu km²</b></div>
-            <div class="option">D. 25 triệu km²</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 37: Lãnh thổ Mỹ La-tinh trải dài từ khoảng vĩ độ nào đến vĩ độ nào?</div>
-        <div class="options">
-            <div class="option"><b>A. Khoảng 33°B đến gần 54°N.</b></div>
-            <div class="option">B. Khoảng 10°B đến 60°N.</div>
-            <div class="option">C. Khoảng 23°27'B đến 23°27'N.</div>
-            <div class="option">D. Khoảng 50°B đến 10°N.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 38: Mỹ La-tinh bao gồm các bộ phận chính là:</div>
-        <div class="options">
-            <div class="option">A. Mê-hi-cô, Ca-na-đa và Nam Mỹ.</div>
-            <div class="option"><b>B. Mê-hi-cô, eo đất Trung Mỹ, quần đảo Ca-ri-bê và Nam Mỹ.</b></div>
-            <div class="option">C. Hoa Kỳ, Trung Mỹ và toàn bộ Nam Mỹ.</div>
-            <div class="option">D. Sơn nguyên Bra-xin và toàn bộ quần đảo Ăng-ti.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 39: Về vị trí bán cầu, Mỹ La-tinh nằm ở:</div>
-        <div class="options">
-            <div class="option">A. Hoàn toàn ở Bán cầu Đông.</div>
-            <div class="option"><b>B. Hoàn toàn ở Bán cầu Tây.</b></div>
-            <div class="option">C. Nằm cân bằng ở hai bán cầu Đông và Tây.</div>
-            <div class="option">D. Chỉ thuộc Bán cầu Bắc.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 40: Phía Bắc của Mỹ La-tinh tiếp giáp với khu vực nào?</div>
-        <div class="options">
-            <div class="option"><b>A. Bắc Mỹ (Hoa Kỳ và Ca-na-đa).</b></div>
-            <div class="option">B. Châu Âu.</div>
-            <div class="option">C. Châu Phi.</div>
-            <div class="option">D. Châu Đại Dương.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 41: Kênh đào Pa-na-ma nối liền hai đại dương nào?</div>
-        <div class="options">
-            <div class="option"><b>A. Thái Bình Dương và Đại Tây Dương.</b></div>
-            <div class="option">B. Thái Bình Dương và Ấn Độ Dương.</div>
-            <div class="option">C. Đại Tây Dương và Ấn Độ Dương.</div>
-            <div class="option">D. Bắc Băng Dương và Thái Bình Dương.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 42: Dãy núi trẻ đồ sộ nhất Mỹ La-tinh chạy sát bờ Thái Bình Dương ở phía tây là:</div>
-        <div class="options">
-            <div class="option">A. Rốc-ki</div>
-            <div class="option"><b>B. An-đét</b></div>
-            <div class="option">C. A-pa-lat</div>
-            <div class="option">D. Hi-ma-lay-a</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 43: Vùng phía Đông Mỹ La-tinh có địa hình chủ yếu là:</div>
-        <div class="options">
-            <div class="option"><b>A. Núi thấp, sơn nguyên và đồng bằng.</b></div>
-            <div class="option">B. Núi cao đồ sộ và vực sâu.</div>
-            <div class="option">C. Hoang mạc cát rộng lớn.</div>
-            <div class="option">D. Các cao nguyên băng giá.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 44: Hai sơn nguyên lớn ở phía đông Nam Mỹ là:</div>
-        <div class="options">
-            <div class="option"><b>A. Guy-a-na và Bra-xin.</b></div>
-            <div class="option">B. Mê-hi-cô và Tây Tạng.</div>
-            <div class="option">C. Đê-can và A-ráp.</div>
-            <div class="option">D. Cô-lo-ra-đô và A-ta-ca-ma.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 45: Đồng bằng nào ở Mỹ La-tinh có diện tích rừng rậm nhiệt đới phát triển rộng lớn nhất?</div>
-        <div class="options">
-            <div class="option">A. La-nốt</div>
-            <div class="option">B. La Pla-ta</div>
-            <div class="option"><b>C. A-ma-dôn</b></div>
-            <div class="option">D. Pam-pa</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 46: Nhìn chung, khí hậu Mỹ La-tinh mang tính chất chủ đạo là:</div>
-        <div class="options">
-            <div class="option">A. Ôn hòa và khô ráo.</div>
-            <div class="option"><b>B. Nóng và ẩm.</b></div>
-            <div class="option">C. Lạnh giá và nhiều tuyết.</div>
-            <div class="option">D. Khô hạn hoang mạc.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 47: Đới khí hậu nào bao phủ phần lớn phía tây đồng bằng A-ma-dôn?</div>
-        <div class="options">
-            <div class="option"><b>A. Đới khí hậu xích đạo.</b></div>
-            <div class="option">B. Đới khí hậu cận nhiệt.</div>
-            <div class="option">C. Đới khí hậu ôn đới.</div>
-            <div class="option">D. Khí hậu núi cao.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 48: Nơi cực kỳ khô hạn được mệnh danh là hoang mạc khô nhất thế giới ở Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option">A. Xa-ha-ra</div>
-            <div class="option"><b>B. A-ta-ca-ma</b></div>
-            <div class="option">C. Gô-bi</div>
-            <div class="option">D. Na-mib</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 49: Vùng biển Ca-ri-bê và dải đất Trung Mỹ hằng năm hay gặp thiên tai tự nhiên nào?</div>
-        <div class="options">
-            <div class="option"><b>A. Bão nhiệt đới và lũ lụt.</b></div>
-            <div class="option">B. Bão tuyết và đóng băng.</div>
-            <div class="option">C. Cát bụi sa mạc.</div>
-            <div class="option">D. Băng tan chảy.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 50: Con sông nhiều nước và có diện tích lưu vực lớn nhất Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option"><b>A. A-ma-dôn</b></div>
-            <div class="option">B. Ô-ri-nô-cô</div>
-            <div class="option">C. Pa-ra-na</div>
-            <div class="option">D. Mi-xi-xi-pi</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 51: Hồ Ti-ti-ca-ca nổi tiếng của Mỹ La-tinh nằm ở:</div>
-        <div class="options">
-            <div class="option"><b>A. Dãy núi cao An-đét.</b></div>
-            <div class="option">B. Đồng bằng A-ma-dôn.</div>
-            <div class="option">C. Quần đảo Ca-ri-bê.</div>
-            <div class="option">D. Sơn nguyên Bra-xin.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 52: Khoáng sản Đồng ở Mỹ La-tinh tập trung trữ lượng lớn nhất tại quốc gia nào?</div>
-        <div class="options">
-            <div class="option">A. Bra-xin</div>
-            <div class="option"><b>B. Chi-lê</b></div>
-            <div class="option">C. Mê-hi-cô</div>
-            <div class="option">D. U-ru-goay</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 53: Khoáng sản Sắt với trữ lượng khoảng 80 tỉ tấn tập trung chủ yếu ở:</div>
-        <div class="options">
-            <div class="option"><b>A. Bra-xin</b></div>
-            <div class="option">B. Chi-lê</div>
-            <div class="option">C. Bô-li-vi-a</div>
-            <div class="option">D. Ar-gen-ti-na</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 54: Dầu mỏ và khí tự nhiên của Mỹ La-tinh tập trung nhiều nhất ở đâu?</div>
-        <div class="options">
-            <div class="option"><b>A. Vê-nê-du-ê-la, Cô-lôm-bi-a và vùng biển Ca-ri-bê.</b></div>
-            <div class="option">B. Sơn nguyên Bra-xin.</div>
-            <div class="option">C. Dãy An-đét phía nam.</div>
-            <div class="option">D. Hoang mạc A-ta-ca-ma.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 55: Số dân của Mỹ La-tinh vào năm 2020 khoảng:</div>
-        <div class="options">
-            <div class="option">A. 450 triệu người.</div>
-            <div class="option">B. 580 triệu người.</div>
-            <div class="option"><b>C. 652 triệu người.</b></div>
-            <div class="option">D. 780 triệu người.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 56: Quốc gia đông dân nhất khu vực Mỹ La-tinh năm 2020 là:</div>
-        <div class="options">
-            <div class="option"><b>A. Bra-xin (211,8 triệu)</b></div>
-            <div class="option">B. Mê-hi-cô (127,8 triệu)</div>
-            <div class="option">C. Ác-hen-ti-na</div>
-            <div class="option">D. Cô-lôm-bi-a</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 57: Tỉ lệ tăng dân số của khu vực Mỹ La-tinh năm 2020 đạt khoảng:</div>
-        <div class="options">
-            <div class="option"><b>A. 0,94%</b></div>
-            <div class="option">B. 1,8%</div>
-            <div class="option">C. 2,5%</div>
-            <div class="option">D. 3,1%</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 58: Cơ cấu dân số theo tuổi ở Mỹ La-tinh năm 2020 đang trong thời kỳ:</div>
-        <div class="options">
-            <div class="option"><b>A. Dân số vàng và đang có xu hướng già hóa.</b></div>
-            <div class="option">B. Dân số siêu già.</div>
-            <div class="option">C. Dân số rất trẻ có tỉ lệ phụ thuộc cao.</div>
-            <div class="option">D. Bùng nổ dân số đỉnh điểm.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 59: Mật độ dân số trung bình của Mỹ La-tinh năm 2020 khoảng:</div>
-        <div class="options">
-            <div class="option"><b>A. 32 người/km²</b></div>
-            <div class="option">B. 65 người/km²</div>
-            <div class="option">C. 100 người/km²</div>
-            <div class="option">D. 150 người/km²</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 60: Dân cư Mỹ La-tinh sống tập trung đông đúc nhất ở:</div>
-        <div class="options">
-            <div class="option"><b>A. Các đảo lớn ở biển Ca-ri-bê, ven biển, đồng bằng màu mỡ.</b></div>
-            <div class="option">B. Rừng rậm đồng bằng A-ma-dôn.</div>
-            <div class="option">C. Các vùng núi cao An-đét.</div>
-            <div class="option">D. Vùng nội địa khô hạn.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 61: Tỉ lệ dân sống ở đô thị của Mỹ La-tinh năm 2020 đạt khoảng:</div>
-        <div class="options">
-            <div class="option">A. 40%</div>
-            <div class="option">B. 60%</div>
-            <div class="option"><b>C. 80%</b></div>
-            <div class="option">D. 95%</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 62: Quốc gia nào ở Mỹ La-tinh có tỉ lệ dân đô thị chiếm hơn 90% dân số?</div>
-        <div class="options">
-            <div class="option"><b>A. U-ru-goay và Ác-hen-ti-na.</b></div>
-            <div class="option">B. Ha-i-ti và Gua-tê-ma-la.</div>
-            <div class="option">C. Hôn-đu-rát và Pa-ra-goay.</div>
-            <div class="option">D. Bô-li-vi-a và Ê-cu-a-đo.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 63: Năm 2020, Mỹ La-tinh có bao nhiêu siêu đô thị có trên 10 triệu dân?</div>
-        <div class="options">
-            <div class="option">A. 2</div>
-            <div class="option">B. 4</div>
-            <div class="option"><b>C. 6</b></div>
-            <div class="option">D. 10</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 64: Siêu đô thị có số dân lớn nhất ở Mỹ La-tinh (năm 2020 với 22 triệu dân) là:</div>
-        <div class="options">
-            <div class="option"><b>A. Xao Pao-lô</b></div>
-            <div class="option">B. Mê-hi-cô Xi-ti</div>
-            <div class="option">C. Bu-ê-nốt Ai-rét</div>
-            <div class="option">D. Ri-ô đê Gia-nê-rô</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 65: Đô thị hóa tự phát ở Mỹ La-tinh gây ra hậu quả tiêu cực nào sau đây?</div>
-        <div class="options">
-            <div class="option"><b>A. Thất nghiệp, ô nhiễm môi trường, tệ nạn xã hội.</b></div>
-            <div class="option">B. Thúc đẩy sản xuất nông nghiệp phát triển nhanh.</div>
-            <div class="option">C. Làm giảm tỉ lệ tội phạm ở các thành phố lớn.</div>
-            <div class="option">D. Phân bố lại dân cư hợp lý hơn về nội địa.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 66: Văn hóa Mỹ La-tinh được hình thành từ sự hòa quyện giữa:</div>
-        <div class="options">
-            <div class="option"><b>A. Nền văn minh cổ đại (In-ca, May-a, A-dơ-tếch) với văn hóa nhập cư.</b></div>
-            <div class="option">B. Văn hóa Đông Á và văn hóa Tây Âu.</div>
-            <div class="option">C. Văn hóa Nam Á và văn hóa Bắc Phi.</div>
-            <div class="option">D. Văn hóa Ba Tư và văn hóa Hy Lạp cổ đại.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 67: Nền văn minh cổ đại nổi tiếng nào tồn tại ở vùng núi An-đét trước khi người Châu Âu xâm chiếm?</div>
-        <div class="options">
-            <div class="option"><b>A. In-ca</b></div>
-            <div class="option">B. May-a</div>
-            <div class="option">C. A-dơ-tếch</div>
-            <div class="option">D. Ai Cập</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 68: Một trong những vấn đề tồn tại lớn về xã hội ở Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option"><b>A. Chênh lệch giàu nghèo lớn và xung đột xã hội.</b></div>
-            <div class="option">B. Thiếu hụt lao động trẻ nghiêm trọng.</div>
-            <div class="option">C. Tỉ lệ người biết chữ quá thấp.</div>
-            <div class="option">D. Sự biến mất hoàn toàn của văn hóa truyền thống.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 69: Diện tích rừng tự nhiên Mỹ La-tinh suy giảm hiện nay chủ yếu do:</div>
-        <div class="options">
-            <div class="option"><b>A. Khai phá lấy gỗ, đất canh tác và làm đường giao thông.</b></div>
-            <div class="option">B. Cháy rừng tự nhiên không thể kiểm soát.</div>
-            <div class="option">C. Biến đổi khí hậu làm cây tự chết hàng loạt.</div>
-            <div class="option">D. Mưa axit tàn phá sinh vật rừng.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 70: Loại động vật nào sau đây KHÔNG phải là loài đặc hữu tiêu biểu ở Mỹ La-tinh?</div>
-        <div class="options">
-            <div class="option">A. Lạc đà Nam Mỹ (La-ma).</div>
-            <div class="option">B. Cá sấu Nam Mỹ.</div>
-            <div class="option">C. Thú ăn kiến.</div>
-            <div class="option"><b>D. Gấu Bắc Cực.</b></div>
-        </div>
-    </div>
-
-    <div class="section-title">PHẦN 3: BÀI 7 - TÌNH HÌNH PHÁT TRIỂN KINH TẾ MỸ LA-TINH (CÂU 71 - 100)</div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 71: Khu vực Mỹ La-tinh đóng góp khoảng bao nhiêu % vào GDP thế giới năm 2020?</div>
-        <div class="options">
-            <div class="option">A. 2%</div>
-            <div class="option"><b>B. 6%</b></div>
-            <div class="option">C. 12%</div>
-            <div class="option">D. 20%</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 72: Quốc gia nào có quy mô GDP lớn nhất khu vực Mỹ La-tinh năm 2020?</div>
-        <div class="options">
-            <div class="option"><b>A. Bra-xin (1448,7 tỉ USD)</b></div>
-            <div class="option">B. Mê-hi-cô (1073,9 tỉ USD)</div>
-            <div class="option">C. Ác-hen-ti-na (389,3 tỉ USD)</div>
-            <div class="option">D. Chi-lê (252,9 tỉ USD)</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 73: Quốc gia nào có quy mô GDP đứng thứ hai Mỹ La-tinh năm 2020?</div>
-        <div class="options">
-            <div class="option">A. Bra-xin</div>
-            <div class="option"><b>B. Mê-hi-cô</b></div>
-            <div class="option">C. Ác-hen-ti-na</div>
-            <div class="option">D. Chi-lê</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 74: Năm 2020, quốc gia nào có GDP/người cao nhất trong các nước: Ác-hen-ti-na, Bra-xin, Mê-hi-cô, Chi-lê?</div>
-        <div class="options">
-            <div class="option">A. Ác-hen-ti-na</div>
-            <div class="option">B. Bra-xin</div>
-            <div class="option">C. Mê-hi-cô</div>
-            <div class="option"><b>D. Chi-lê (13232 USD)</b></div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 75: Mỹ La-tinh bắt đầu tiến hành công nghiệp hoá vào thời gian nào?</div>
-        <div class="options">
-            <div class="option">A. Thế kỉ XVII</div>
-            <div class="option">B. Thế kỉ XVIII</div>
-            <div class="option"><b>C. Thế kỉ XIX</b></div>
-            <div class="option">D. Thập niên 1990</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 76: Tốc độ tăng trưởng GDP của Mỹ La-tinh thường xuyên biến động chủ yếu do:</div>
-        <div class="options">
-            <div class="option"><b>A. Phụ thuộc nước ngoài (vốn, công nghệ, thị trường) và bất ổn chính trị.</b></div>
-            <div class="option">B. Thiếu lực lượng lao động sản xuất.</div>
-            <div class="option">C. Cạn kiệt hoàn toàn tài nguyên thiên nhiên.</div>
-            <div class="option">D. Thiếu liên kết thương mại với Bắc Mỹ.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 77: Năm 2020, tốc độ tăng GDP của khu vực Mỹ La-tinh giảm xuống mức âm là bao nhiêu %?</div>
-        <div class="options">
-            <div class="option">A. -2.5%</div>
-            <div class="option">B. -4.1%</div>
-            <div class="option"><b>C. -6.7%</b></div>
-            <div class="option">D. -8.0%</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 78: Từ thập niên 1990 đến nay, các nước Mỹ La-tinh thực hiện chuyển dịch kinh tế sang:</div>
-        <div class="options">
-            <div class="option">A. Nền kinh tế kế hoạch hóa tập trung.</div>
-            <div class="option"><b>B. Nền kinh tế thị trường.</b></div>
-            <div class="option">C. Nền kinh tế đóng cửa.</div>
-            <div class="option">D. Nền kinh tế tự cung tự cấp.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 79: Trong cơ cấu GDP Mỹ La-tinh giai đoạn 1990 - 2020, ngành kinh tế nào chiếm tỷ trọng cao nhất?</div>
-        <div class="options">
-            <div class="option">A. Nông nghiệp, lâm nghiệp và thủy sản.</div>
-            <div class="option">B. Công nghiệp và xây dựng.</div>
-            <div class="option"><b>C. Dịch vụ.</b></div>
-            <div class="option">D. Thuế sản phẩm.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 80: Tỉ trọng ngành dịch vụ trong GDP Mỹ La-tinh năm 2020 đạt:</div>
-        <div class="options">
-            <div class="option">A. 32.4%</div>
-            <div class="option">B. 28.3%</div>
-            <div class="option"><b>C. 60.3%</b></div>
-            <div class="option">D. 6.5%</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 81: Tỉ trọng ngành nông nghiệp, lâm nghiệp và thủy sản trong cơ cấu GDP năm 2020 của Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option"><b>A. 6.5%</b></div>
-            <div class="option">B. 28.3%</div>
-            <div class="option">C. 60.3%</div>
-            <div class="option">D. 10.4%</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 82: Cơ cấu cây trồng của Mỹ La-tinh đa dạng gồm có:</div>
-        <div class="options">
-            <div class="option"><b>A. Cây lương thực, cây công nghiệp và cây ăn quả.</b></div>
-            <div class="option">B. Cây lương thực ôn đới và rau mầm.</div>
-            <div class="option">C. Chỉ duy nhất cây công nghiệp dài ngày.</div>
-            <div class="option">D. Cây lấy củ và cây dại.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 83: Hai loại cây lương thực chính ở Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option"><b>A. Ngô và lúa mì.</b></div>
-            <div class="option">B. Lúa nước và khoai tây.</div>
-            <div class="option">C. Đại mạch và yến mạch.</div>
-            <div class="option">D. Sắn và khoai lang.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 84: Năm 2020, tổng sản lượng lương thực sản xuất tại Mỹ La-tinh đạt hơn:</div>
-        <div class="options">
-            <div class="option">A. 100 triệu tấn.</div>
-            <div class="option"><b>B. 208 triệu tấn.</b></div>
-            <div class="option">C. 350 triệu tấn.</div>
-            <div class="option">D. 500 triệu tấn.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 85: Các cây công nghiệp thế mạnh nổi bật nhất của Mỹ La-tinh bao gồm:</div>
-        <div class="options">
-            <div class="option"><b>A. Cà phê, ca cao, đậu tương, mía, thuốc lá, bông, cao su.</b></div>
-            <div class="option">B. Chè, củ cải đường, dâu tằm, vừng.</div>
-            <div class="option">C. Cọ dầu, hạt tiêu, hồi, quế.</div>
-            <div class="option">D. Oải hương, ô liu, nho ôn đới.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 86: Vật nuôi chủ yếu ở khu vực Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option"><b>A. Bò và gia cầm.</b></div>
-            <div class="option">B. Trâu và lợn.</div>
-            <div class="option">C. Cừu và dê.</div>
-            <div class="option">D. Ngựa và lạc đà.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 87: Hiện nay, nông nghiệp Mỹ La-tinh đang phát triển theo hướng:</div>
-        <div class="options">
-            <div class="option"><b>A. Chuyên môn hóa và hiện đại hóa (ứng dụng KH-CN).</b></div>
-            <div class="option">B. Du canh du cư quảng canh.</div>
-            <div class="option">C. Tự cung tự cấp hộ gia đình.</div>
-            <div class="option">D. Giảm tối đa diện tích cây công nghiệp.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 88: Ngành công nghiệp khai khoáng Mỹ La-tinh phát triển mạnh dựa vào:</div>
-        <div class="options">
-            <div class="option"><b>A. Nguồn tài nguyên khoáng sản đa dạng, phong phú.</b></div>
-            <div class="option">B. Nguồn vốn đầu tư khổng lồ từ các nước Châu Phi.</div>
-            <div class="option">C. Công nghệ khai thác thô sơ giá rẻ.</div>
-            <div class="option">D. Nhu cầu tiêu dùng nội địa tăng đột biến.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 89: Mỹ La-tinh đóng góp bao nhiêu % sản lượng Bạc của thế giới?</div>
-        <div class="options">
-            <div class="option">A. 21%</div>
-            <div class="option">B. 45%</div>
-            <div class="option"><b>C. 50%</b></div>
-            <div class="option">D. 65%</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 90: Mỹ La-tinh đóng góp bao nhiêu % sản lượng Kẽm của thế giới?</div>
-        <div class="options">
-            <div class="option"><b>A. 21%</b></div>
-            <div class="option">B. 35%</div>
-            <div class="option">C. 45%</div>
-            <div class="option">D. 50%</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 91: Các sản phẩm công nghiệp công nghệ cao mà một số nước Mỹ La-tinh đã chế tạo thành công là:</div>
-        <div class="options">
-            <div class="option"><b>A. Ô tô, máy bay.</b></div>
-            <div class="option">B. Tàu ngầm hạt nhân.</div>
-            <div class="option">C. Điện thoại thông minh cao cấp.</div>
-            <div class="option">D. Vệ tinh nhân tạo viễn thông.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 92: Bốn quốc gia có ngành công nghiệp phát triển mạnh nhất Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option"><b>A. Ác-hen-ti-na, Bra-xin, Chi-lê, Mê-hi-cô.</b></div>
-            <div class="option">B. Ha-i-ti, Cu-ba, U-ru-goay, Pa-na-ma.</div>
-            <div class="option">C. Cô-lôm-bi-a, Vê-nê-du-ê-la, Bô-li-vi-a, Pê-ru.</div>
-            <div class="option">D. Su-ri-nam, Guy-a-na, Pa-ra-goay, Ê-cu-a-đo.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 93: Lĩnh vực dịch vụ quan trọng nhất trong nền kinh tế đối ngoại ở Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option"><b>A. Ngoại thương.</b></div>
-            <div class="option">B. Vận tải đường sắt.</div>
-            <div class="option">C. Dịch vụ bưu chính.</div>
-            <div class="option">D. Tài chính ngân hàng nội địa.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 94: Mặt hàng xuất khẩu chủ yếu của khu vực Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option"><b>A. Quặng khoáng sản, dầu thô, nông sản nhiệt đới, thịt, sữa.</b></div>
-            <div class="option">B. Máy móc công nghiệp, hóa chất tinh vi.</div>
-            <div class="option">C. Linh kiện máy tính, vũ khí quân sự.</div>
-            <div class="option">D. Vải vóc, trang thiết bị y tế cao cấp.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 95: Ba đối tác thương mại lớn nhất của Mỹ La-tinh hiện nay là:</div>
-        <div class="options">
-            <div class="option"><b>A. Hoa Kỳ, EU, Trung Quốc.</b></div>
-            <div class="option">B. Nhật Bản, Hàn Quốc, ASEAN.</div>
-            <div class="option">C. Nga, Ấn Độ, Úc.</div>
-            <div class="option">D. Canada, Anh, Châu Phi.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 96: Du lịch Mỹ La-tinh phát triển thu hút đông đảo du khách nhờ có:</div>
-        <div class="options">
-            <div class="option"><b>A. Cảnh quan thiên nhiên đa dạng và văn hóa đặc sắc.</b></div>
-            <div class="option">B. Giá cả dịch vụ rẻ nhất thế giới.</div>
-            <div class="option">C. Nhiều khu công viên giải trí hiện đại hàng đầu.</div>
-            <div class="option">D. Miễn phí thị thực cho tất cả các quốc gia.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 97: Việc khai thác khoáng sản quá mức ở Mỹ La-tinh đang gây ra nguy cơ gì?</div>
-        <div class="options">
-            <div class="option"><b>A. Cạn kiệt nguồn tài nguyên thiên nhiên.</b></div>
-            <div class="option">B. Thừa thãi nguyên liệu thô trong nước.</div>
-            <div class="option">C. Suy giảm lượng khách du lịch tới biển.</div>
-            <div class="option">D. Tăng nhanh chi phí nhập khẩu nguyên liệu.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 98: Ngành kinh tế đóng góp tỉ trọng lớn nhất vào quy mô GDP Mỹ La-tinh là:</div>
-        <div class="options">
-            <div class="option"><b>A. Dịch vụ</b></div>
-            <div class="option">B. Công nghiệp</div>
-            <div class="option">C. Nông nghiệp</div>
-            <div class="option">D. Thủy sản</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 99: Tình trạng phụ thuộc vào nguồn vốn và thị trường nước ngoài tác động thế nào đến Mỹ La-tinh?</div>
-        <div class="options">
-            <div class="option"><b>A. Làm cho sự tăng trưởng kinh tế dễ bị tổn thương và thiếu ổn định.</b></div>
-            <div class="option">B. Giúp nền kinh tế luôn duy trì tốc độ tăng trưởng cao.</div>
-            <div class="option">C. Xóa bỏ hoàn toàn tình trạng đói nghèo.</div>
-            <div class="option">D. Thúc đẩy độc lập tự chủ kinh tế tuyệt đối.</div>
-        </div>
-    </div>
-
-    <div class="question-box">
-        <div class="question-text">Câu 100: Mục tiêu cốt lõi trong chính sách phát triển kinh tế Mỹ La-tinh hiện nay là:</div>
-        <div class="options">
-            <div class="option"><b>A. Đẩy mạnh hiện đại hóa, tăng tính tự chủ và phát triển bền vững.</b></div>
-            <div class="option">B. Tập trung khai thác triệt để tài nguyên khoáng sản.</div>
-            <div class="option">C. Cắt giảm hợp tác kinh tế quốc tế.</div>
-            <div class="option">D. Ngừng đầu tư cho ngành dịch vụ và du lịch.</div>
-        </div>
-    </div>
-
+<main>
+<h1>📝 Ôn thi trắc nghiệm</h1>
+<div class="mu">Xáo trộn câu hỏi / đáp án, chấm đúng sai ngay và thống kê kết quả.</div>
+
+<section id="setup" class="card">
+<b>Bộ câu hỏi</b>
+<p class="mu">Mỗi câu cách nhau một dòng trống. Dòng đầu là câu hỏi, tiếp theo là các đáp án A–D, cuối cùng là “Đáp án: X”. Có thể dán bộ đề của bạn vào ô dưới.</p>
+<textarea id="src" spellcheck="false"></textarea>
+<label class="ck"><input type="checkbox" id="shQ" checked> Xáo trộn thứ tự câu hỏi</label>
+<label class="ck"><input type="checkbox" id="shA" checked> Xáo trộn đáp án A, B, C, D</label>
+<label class="ck"><input type="checkbox" id="auto"> Chỉ hiện đúng/sai ở cuối bài (chế độ thi thử)</label>
+<div class="row"><button id="go">Bắt đầu làm bài</button><span id="msg" class="mu"></span></div>
+</section>
+
+<section id="quiz" class="card hide">
+<div class="row" style="margin:0;justify-content:space-between"><span id="prog" class="mu"></span><span id="tm" class="mu"></span></div>
+<div class="bar"><i id="pb"></i></div>
+<div class="q" id="qt"></div>
+<div id="opts"></div>
+<div class="fb" id="fb"></div>
+<div class="row"><button id="nx" disabled>Câu tiếp</button><button class="sec" id="quit">Thoát</button></div>
+</section>
+
+<section id="res" class="hide">
+<div class="card">
+<div class="big" id="pc"></div>
+<div class="mu" style="text-align:center" id="verdict"></div>
+<div class="stats" id="stats"></div>
+<div class="row"><button id="again">Làm lại toàn bộ</button><button class="sec" id="wrongOnly">Làm lại câu sai</button><button class="sec" id="home">Về trang chính</button></div>
 </div>
+<div class="card"><b>Chi tiết từng câu</b><div id="review"></div></div>
+</section>
+</main>
+<footer id="ft" class="hide"><div class="fi">
+<div><strong id="fT">00:00</strong><span>⏱ Thời gian</span></div>
+<div class="g"><strong id="fOk">0</strong><span>✔ Câu đúng</span></div>
+<div class="r"><strong id="fNo">0</strong><span>✘ Câu sai</span></div>
+<div><strong id="fLeft">0</strong><span>Chưa làm</span></div>
+</div></footer>
 
 <script>
-(() => {
-    const quizContent = document.getElementById('quiz-content');
-    const sourceNodes = [...document.querySelectorAll('.section-title, .question-box')];
-    const sections = [];
+const SAMPLE=`Liên hợp quốc (UN) được thành lập vào năm nào?
+A. 1944
+B. 1945
+C. 1976
+D. 1977
+Đáp án: B
 
-    sourceNodes.forEach(node => {
-        if (node.classList.contains('section-title')) {
-            sections.push({ title: node.textContent.trim(), questions: [] });
-            return;
-        }
+Tính đến năm 2021, Liên hợp quốc có bao nhiêu quốc gia thành viên?
+A. 164
+B. 190
+C. 193
+D. 21
+Đáp án: C
 
-        const choices = [...node.querySelectorAll('.option')].map(option => ({
-            text: option.textContent.trim(),
-            correct: Boolean(option.querySelector('b'))
-        }));
-        sections[sections.length - 1].questions.push({
-            prompt: node.querySelector('.question-text').textContent.trim(),
-            choices
-        });
+Việt Nam chính thức gia nhập Liên hợp quốc vào năm nào?
+A. 1945
+B. 1977
+C. 1995
+D. 2007
+Đáp án: B
+
+Tôn chỉ hoạt động ban đầu khi thành lập Liên hợp quốc là gì?
+A. Bảo đảm hòa bình và trật tự thế giới bền vững.
+B. Thiết lập nền thương mại tự do toàn cầu.
+C. Hỗ trợ tài chính cho các nước đang phát triển.
+D. Thúc đẩy tự do đầu tư châu Á - Thái Bình Dương.
+Đáp án: A
+
+Tổ chức Thương mại Thế giới (WTO) chính thức thành lập và hoạt động từ năm nào?
+A. 1944
+B. 1989
+C. 1995
+D. 2007
+Đáp án: C
+
+Tính đến năm 2021, Tổ chức Thương mại Thế giới (WTO) có bao nhiêu thành viên?
+A. 150
+B. 164
+C. 190
+D. 193
+Đáp án: B
+
+Việt Nam trở thành thành viên thứ 150 của WTO vào năm nào?
+A. 1995
+B. 1998
+C. 2007
+D. 2021
+Đáp án: C
+
+Quỹ Tiền tệ Quốc tế (IMF) được thành lập vào năm nào?
+A. 1944
+B. 1945
+C. 1976
+D. 1989
+Đáp án: A
+
+Việt Nam trở thành thành viên của IMF từ năm nào?
+A. 1945
+B. 1976
+C. 1977
+D. 1998
+Đáp án: B
+
+Tính đến năm 2021, Quỹ Tiền tệ Quốc tế (IMF) có bao nhiêu thành viên?
+A. 164
+B. 190
+C. 193
+D. 21
+Đáp án: B
+
+Diễn đàn Hợp tác Kinh tế châu Á - Thái Bình Dương (APEC) thành lập năm nào?
+A. 1977
+B. 1989
+C. 1995
+D. 1998
+Đáp án: B
+
+APEC hiện bao gồm bao nhiêu nền kinh tế thành viên?
+A. 21
+B. 150
+C. 164
+D. 190
+Đáp án: A
+
+Việt Nam chính thức tham gia APEC vào năm nào?
+A. 1977
+B. 1995
+C. 1998
+D. 2007
+Đáp án: C
+
+Khái niệm “An ninh toàn cầu” được hiểu là:
+A. Trạng thái bình yên, ổn định và hòa bình của toàn thế giới.
+B. Việc không xảy ra xung đột quân sự giữa các nước lớn.
+C. Sự hợp tác thương mại không rào cản thuế quan.
+D. Sự phát triển mạnh mẽ của khoa học công nghệ quốc phòng.
+Đáp án: A
+
+Nhân tố quan trọng nhất để bảo đảm an ninh toàn cầu là:
+A. Phát triển vũ khí hiện đại.
+B. Đảm bảo an ninh con người.
+C. Tăng trưởng kinh tế thần tốc.
+D. Mở rộng biên giới lãnh thổ.
+Đáp án: B
+
+An ninh truyền thống liên quan chủ yếu đến các vấn đề nào?
+A. An ninh chính trị và quân sự (khủng bố, chiến tranh, xung đột).
+B. An ninh lương thực và nguồn nước.
+C. An ninh năng lượng và tài chính.
+D. An ninh mạng và dịch bệnh.
+Đáp án: A
+
+Yếu tố nào sau đây thuộc về an ninh phi truyền thống?
+A. Xung đột vũ trang biên giới.
+B. Chiến tranh cục bộ.
+C. An ninh lương thực và an ninh mạng.
+D. Cuộc tấn công quân sự xâm lược.
+Đáp án: C
+
+An ninh lương thực là việc đảm bảo cho mọi người:
+A. Có quyền tiếp cận nguồn lương thực đầy đủ, an toàn để sống khỏe mạnh.
+B. Được phát lương thực miễn phí hàng ngày từ chính phủ.
+C. Tự sản xuất đủ lương thực cho nhu cầu cá nhân.
+D. Chỉ tiêu dùng thực phẩm nhập khẩu chất lượng cao.
+Đáp án: A
+
+Nguyên nhân nào KHÔNG trực tiếp đe dọa an ninh lương thực toàn cầu?
+A. Biến đổi khí hậu và thiên tai.
+B. Xung đột vũ trang và chiến tranh.
+C. Ứng dụng công nghệ cao vào nông nghiệp.
+D. Dịch bệnh làm gián đoạn chuỗi cung ứng.
+Đáp án: C
+
+Tên viết tắt của Tổ chức Lương thực và Nông nghiệp Liên hợp quốc là:
+A. FAO
+B. WEP
+C. WBG
+D. IMF
+Đáp án: A
+
+Tên viết tắt của Chương trình Lương thực Thế giới là:
+A. FAO
+B. WEP
+C. WBG
+D. WTO
+Đáp án: B
+
+Giải pháp căn cơ để các nước chủ động đảm bảo an ninh lương thực là:
+A. Trông chờ vào viện trợ quốc tế.
+B. Đẩy mạnh sản xuất, đầu tư vào nông nghiệp bền vững.
+C. Tăng cường nhập khẩu lương thực thô.
+D. Chuyển toàn bộ đất nông nghiệp sang công nghiệp.
+Đáp án: B
+
+An ninh năng lượng là sự đảm bảo đầy đủ năng lượng cho:
+A. Nhu cầu con người và các hoạt động kinh tế - xã hội.
+B. Hoạt động của các quân đội quốc gia.
+C. Mục đích xuất khẩu nhiên liệu thô.
+D. Việc vận hành các nhà máy nhiệt điện than.
+Đáp án: A
+
+Một trong những giải pháp hàng đầu để bảo đảm an ninh năng lượng bền vững là:
+A. Tăng khai thác tối đa nguồn nhiên liệu hóa thạch.
+B. Đẩy mạnh tiết kiệm và phát triển năng lượng tái tạo.
+C. Cắt giảm hoạt động sản xuất công nghiệp.
+D. Nhập khẩu điện năng từ quốc gia khác.
+Đáp án: B
+
+Tổ chức các nước xuất khẩu dầu mỏ có tên viết tắt là:
+A. APEC
+B. OPEC
+C. WTO
+D. FAO
+Đáp án: B
+
+Nội dung nào KHÔNG đúng khi nói về an ninh nguồn nước?
+A. Đảm bảo số lượng và chất lượng nước phục vụ sinh hoạt.
+B. Ứng phó hiệu quả với thảm họa thiên tai liên quan đến nước.
+C. Khai thác kiệt quệ nguồn nước ngầm để đáp ứng công nghiệp.
+D. Hợp tác kiểm soát nguồn tài nguyên nước chung.
+Đáp án: C
+
+Vấn đề an ninh nguồn nước ngày càng căng thẳng do nguyên nhân chính nào?
+A. Sử dụng lãng phí, ô nhiễm môi trường và biến đổi khí hậu.
+B. Sự tích tụ nước quá lớn ở các đập thủy điện.
+C. Nhu cầu sử dụng nước cho nông nghiệp giảm.
+D. Mạng lưới sông ngòi toàn cầu thu hẹp tự nhiên.
+Đáp án: A
+
+An ninh mạng là sự đảm bảo các hoạt động trên không gian mạng:
+A. Không gây hại đến an ninh quốc gia, trật tự và quyền lợi hợp pháp.
+B. Được tự do hoàn toàn không chịu sự quản lý của pháp luật.
+C. Chỉ dành riêng cho các cơ quan chính phủ sử dụng.
+D. Tự động loại bỏ mọi mã độc từ quốc tế.
+Đáp án: A
+
+Thách thức lớn nhất của an ninh mạng hiện nay là:
+A. Chi phí mua thiết bị máy tính quá đắt đỏ.
+B. Hoạt động diễn biến nhanh, phức tạp, tác động đa chiều.
+C. Thiếu lực lượng kĩ sư phần mềm trên thế giới.
+D. Tốc độ truyền tải internet toàn cầu quá chậm.
+Đáp án: B
+
+Để bảo vệ an ninh mạng hiệu quả, các quốc gia cần:
+A. Ban hành chiến lược, luật an ninh mạng và hợp tác quốc tế.
+B. Cắt đứt kết nối internet quốc tế.
+C. Cấm người dân sử dụng mạng xã hội.
+D. Phá hủy các trung tâm dữ liệu công nghệ.
+Đáp án: A
+
+Khái niệm “Hòa bình” được hiểu là:
+A. Sự bình yên, tự do, hạnh phúc giữa con người và các quốc gia.
+B. Trạng thái tạm ngưng bắn giữa hai phe chiến tranh.
+C. Sự phục tùng của các nước nhỏ trước nước lớn.
+D. Việc duy trì lực lượng quân đội hùng mạnh.
+Đáp án: A
+
+Vấn đề nào sau đây ĐANG đe dọa trực tiếp đến hòa bình thế giới hiện nay?
+A. Mở rộng giao lưu văn hóa quốc tế.
+B. Xung đột vũ trang, tranh chấp biên giới lãnh thổ, đói nghèo.
+C. Thúc đẩy tự do hóa thương mại toàn cầu.
+D. Ký kết các hiệp định kinh tế song phương.
+Đáp án: B
+
+Nguyên tắc tối cao trong đối thoại giải quyết tranh chấp bảo vệ hòa bình là:
+A. Tôn trọng chủ quyền, quyền tự chủ và pháp luật quốc tế.
+B. Dùng sức mạnh quân sự để răn đe.
+C. Áp đặt mong muốn của phe đa số.
+D. Can thiệp nội bộ để thay đổi chính quyền.
+Đáp án: A
+
+Giữ vững hòa bình thế giới sẽ tạo điều kiện trực tiếp để:
+A. Giải quyết các vấn đề an ninh toàn cầu và phát triển thịnh vượng.
+B. Gia tăng ngân sách chạy đua vũ trang.
+C. Triệt tiêu cạnh tranh kinh tế giữa các nước.
+D. Xóa bỏ ranh giới địa lý quốc gia.
+Đáp án: A
+
+Tổ chức nào giữ vai trò trung tâm trong việc điều hòa các nỗ lực quốc tế vì hòa bình?
+A. Liên hợp quốc (UN)
+B. WTO
+C. APEC
+D. IMF
+Đáp án: A
+
+Lãnh thổ Mỹ La-tinh có diện tích khoảng:
+A. 10 triệu km²
+B. 15 triệu km²
+C. 20 triệu km²
+D. 25 triệu km²
+Đáp án: C
+
+Lãnh thổ Mỹ La-tinh trải dài từ khoảng vĩ độ nào đến vĩ độ nào?
+A. Khoảng 33°B đến gần 54°N.
+B. Khoảng 10°B đến 60°N.
+C. Khoảng 23°27’B đến 23°27’N.
+D. Khoảng 50°B đến 10°N.
+Đáp án: A
+
+Mỹ La-tinh bao gồm các bộ phận chính là:
+A. Mê-hi-cô, Ca-na-đa và Nam Mỹ.
+B. Mê-hi-cô, eo đất Trung Mỹ, quần đảo Ca-ri-bê và Nam Mỹ.
+C. Hoa Kỳ, Trung Mỹ và toàn bộ Nam Mỹ.
+D. Sơn nguyên Bra-xin và toàn bộ quần đảo Ăng-ti.
+Đáp án: B
+
+Về vị trí bán cầu, Mỹ La-tinh nằm ở:
+A. Hoàn toàn ở Bán cầu Đông.
+B. Hoàn toàn ở Bán cầu Tây.
+C. Nằm cân bằng ở hai bán cầu Đông và Tây.
+D. Chỉ thuộc Bán cầu Bắc.
+Đáp án: B
+
+Phía Bắc của Mỹ La-tinh tiếp giáp với khu vực nào?
+A. Bắc Mỹ (Hoa Kỳ và Ca-na-đa).
+B. Châu Âu.
+C. Châu Phi.
+D. Châu Đại Dương.
+Đáp án: A
+
+Kênh đào Pa-na-ma nối liền hai đại dương nào?
+A. Thái Bình Dương và Đại Tây Dương.
+B. Thái Bình Dương và Ấn Độ Dương.
+C. Đại Tây Dương và Ấn Độ Dương.
+D. Bắc Băng Dương và Thái Bình Dương.
+Đáp án: A
+
+Dãy núi trẻ đồ sộ nhất Mỹ La-tinh chạy sát bờ Thái Bình Dương ở phía tây là:
+A. Rốc-ki
+B. An-đét
+C. A-pa-lat
+D. Hi-ma-lay-a
+Đáp án: B
+
+Vùng phía Đông Mỹ La-tinh có địa hình chủ yếu là:
+A. Núi thấp, sơn nguyên và đồng bằng.
+B. Núi cao đồ sộ và vực sâu.
+C. Hoang mạc cát rộng lớn.
+D. Các cao nguyên băng giá.
+Đáp án: A
+
+Hai sơn nguyên lớn ở phía đông Nam Mỹ là:
+A. Guy-a-na và Bra-xin.
+B. Mê-hi-cô và Tây Tạng.
+C. Đê-can và A-ráp.
+D. Cô-lo-ra-đô và A-ta-ca-ma.
+Đáp án: A
+
+Đồng bằng nào ở Mỹ La-tinh có diện tích rừng rậm nhiệt đới phát triển rộng lớn nhất?
+A. La-nốt
+B. La Pla-ta
+C. A-ma-dôn
+D. Pam-pa
+Đáp án: C
+
+Nhìn chung, khí hậu Mỹ La-tinh mang tính chất chủ đạo là:
+A. Ôn hòa và khô ráo.
+B. Nóng và ẩm.
+C. Lạnh giá và nhiều tuyết.
+D. Khô hạn hoang mạc.
+Đáp án: B
+
+Đới khí hậu nào bao phủ phần lớn phía tây đồng bằng A-ma-dôn?
+A. Đới khí hậu xích đạo.
+B. Đới khí hậu cận nhiệt.
+C. Đới khí hậu ôn đới.
+D. Khí hậu núi cao.
+Đáp án: A
+
+Nơi cực kỳ khô hạn được mệnh danh là hoang mạc khô nhất thế giới ở Mỹ La-tinh là:
+A. Xa-ha-ra
+B. A-ta-ca-ma
+C. Gô-bi
+D. Na-mib
+Đáp án: B
+
+Vùng biển Ca-ri-bê và dải đất Trung Mỹ hằng năm hay gặp thiên tai tự nhiên nào?
+A. Bão nhiệt đới và lũ lụt.
+B. Bão tuyết và đóng băng.
+C. Cát bụi sa mạc.
+D. Băng tan chảy.
+Đáp án: A
+
+Con sông nhiều nước và có diện tích lưu vực lớn nhất Mỹ La-tinh là:
+A. A-ma-dôn
+B. Ô-ri-nô-cô
+C. Pa-ra-na
+D. Mi-xi-xi-pi
+Đáp án: A
+
+Hồ Ti-ti-ca-ca nổi tiếng của Mỹ La-tinh nằm ở:
+A. Dãy núi cao An-đét.
+B. Đồng bằng A-ma-dôn.
+C. Quần đảo Ca-ri-bê.
+D. Sơn nguyên Bra-xin.
+Đáp án: A
+
+Khoáng sản Đồng ở Mỹ La-tinh tập trung trữ lượng lớn nhất tại quốc gia nào?
+A. Bra-xin
+B. Chi-lê
+C. Mê-hi-cô
+D. U-ru-goay
+Đáp án: B
+
+Khoáng sản Sắt với trữ lượng khoảng 80 tỉ tấn tập trung chủ yếu ở:
+A. Bra-xin
+B. Chi-lê
+C. Bô-li-vi-a
+D. Ar-gen-ti-na
+Đáp án: A
+
+Dầu mỏ và khí tự nhiên của Mỹ La-tinh tập trung nhiều nhất ở đâu?
+A. Vê-nê-du-ê-la, Cô-lôm-bi-a và vùng biển Ca-ri-bê.
+B. Sơn nguyên Bra-xin.
+C. Dãy An-đét phía nam.
+D. Hoang mạc A-ta-ca-ma.
+Đáp án: A
+
+Số dân của Mỹ La-tinh vào năm 2020 khoảng:
+A. 450 triệu người.
+B. 580 triệu người.
+C. 652 triệu người.
+D. 780 triệu người.
+Đáp án: C
+
+Quốc gia đông dân nhất khu vực Mỹ La-tinh năm 2020 là:
+A. Bra-xin (211,8 triệu)
+B. Mê-hi-cô (127,8 triệu)
+C. Ác-hen-ti-na
+D. Cô-lôm-bi-a
+Đáp án: A
+
+Tỉ lệ tăng dân số của khu vực Mỹ La-tinh năm 2020 đạt khoảng:
+A. 0,94%
+B. 1,8%
+C. 2,5%
+D. 3,1%
+Đáp án: A
+
+Cơ cấu dân số theo tuổi ở Mỹ La-tinh năm 2020 đang trong thời kỳ:
+A. Dân số vàng và đang có xu hướng già hóa.
+B. Dân số siêu già.
+C. Dân số rất trẻ có tỉ lệ phụ thuộc cao.
+D. Bùng nổ dân số đỉnh điểm.
+Đáp án: A
+
+Mật độ dân số trung bình của Mỹ La-tinh năm 2020 khoảng:
+A. 32 người/km²
+B. 65 người/km²
+C. 100 người/km²
+D. 150 người/km²
+Đáp án: A
+
+Dân cư Mỹ La-tinh sống tập trung đông đúc nhất ở:
+A. Các đảo lớn ở biển Ca-ri-bê, ven biển, đồng bằng màu mỡ.
+B. Rừng rậm đồng bằng A-ma-dôn.
+C. Các vùng núi cao An-đét.
+D. Vùng nội địa khô hạn.
+Đáp án: A
+
+Tỉ lệ dân sống ở đô thị của Mỹ La-tinh năm 2020 đạt khoảng:
+A. 40%
+B. 60%
+C. 80%
+D. 95%
+Đáp án: C
+
+Quốc gia nào ở Mỹ La-tinh có tỉ lệ dân đô thị chiếm hơn 90% dân số?
+A. U-ru-goay và Ác-hen-ti-na.
+B. Ha-i-ti và Gua-tê-ma-la.
+C. Hôn-đu-rát và Pa-ra-goay.
+D. Bô-li-vi-a và Ê-cu-a-đo.
+Đáp án: A
+
+Năm 2020, Mỹ La-tinh có bao nhiêu siêu đô thị có trên 10 triệu dân?
+A. 2
+B. 4
+C. 6
+D. 10
+Đáp án: C
+
+Siêu đô thị có số dân lớn nhất ở Mỹ La-tinh (năm 2020 với 22 triệu dân) là:
+A. Xao Pao-lô
+B. Mê-hi-cô Xi-ti
+C. Bu-ê-nốt Ai-rét
+D. Ri-ô đê Gia-nê-rô
+Đáp án: A
+
+Đô thị hóa tự phát ở Mỹ La-tinh gây ra hậu quả tiêu cực nào sau đây?
+A. Thất nghiệp, ô nhiễm môi trường, tệ nạn xã hội.
+B. Thúc đẩy sản xuất nông nghiệp phát triển nhanh.
+C. Làm giảm tỉ lệ tội phạm ở các thành phố lớn.
+D. Phân bố lại dân cư hợp lý hơn về nội địa.
+Đáp án: A
+
+Văn hóa Mỹ La-tinh được hình thành từ sự hòa quyện giữa:
+A. Nền văn minh cổ đại (In-ca, May-a, A-dơ-tếch) với văn hóa nhập cư.
+B. Văn hóa Đông Á và văn hóa Tây Âu.
+C. Văn hóa Nam Á và văn hóa Bắc Phi.
+D. Văn hóa Ba Tư và văn hóa Hy Lạp cổ đại.
+Đáp án: A
+
+Nền văn minh cổ đại nổi tiếng nào tồn tại ở vùng núi An-đét trước khi người Châu Âu xâm chiếm?
+A. In-ca
+B. May-a
+C. A-dơ-tếch
+D. Ai Cập
+Đáp án: A
+
+Một trong những vấn đề tồn tại lớn về xã hội ở Mỹ La-tinh là:
+A. Chênh lệch giàu nghèo lớn và xung đột xã hội.
+B. Thiếu hụt lao động trẻ nghiêm trọng.
+C. Tỉ lệ người biết chữ quá thấp.
+D. Sự biến mất hoàn toàn của văn hóa truyền thống.
+Đáp án: A
+
+Diện tích rừng tự nhiên Mỹ La-tinh suy giảm hiện nay chủ yếu do:
+A. Khai phá lấy gỗ, đất canh tác và làm đường giao thông.
+B. Cháy rừng tự nhiên không thể kiểm soát.
+C. Biến đổi khí hậu làm cây tự chết hàng loạt.
+D. Mưa axit tàn phá sinh vật rừng.
+Đáp án: A
+
+Loại động vật nào sau đây KHÔNG phải là loài đặc hữu tiêu biểu ở Mỹ La-tinh?
+A. Lạc đà Nam Mỹ (La-ma).
+B. Cá sấu Nam Mỹ.
+C. Thú ăn kiến.
+D. Gấu Bắc Cực.
+Đáp án: D
+
+Khu vực Mỹ La-tinh đóng góp khoảng bao nhiêu % vào GDP thế giới năm 2020?
+A. 2%
+B. 6%
+C. 12%
+D. 20%
+Đáp án: B
+
+Quốc gia nào có quy mô GDP lớn nhất khu vực Mỹ La-tinh năm 2020?
+A. Bra-xin (1448,7 tỉ USD)
+B. Mê-hi-cô (1073,9 tỉ USD)
+C. Ác-hen-ti-na (389,3 tỉ USD)
+D. Chi-lê (252,9 tỉ USD)
+Đáp án: A
+
+Quốc gia nào có quy mô GDP đứng thứ hai Mỹ La-tinh năm 2020?
+A. Bra-xin
+B. Mê-hi-cô
+C. Ác-hen-ti-na
+D. Chi-lê
+Đáp án: B
+
+Năm 2020, quốc gia nào có GDP/người cao nhất trong các nước: Ác-hen-ti-na, Bra-xin, Mê-hi-cô, Chi-lê?
+A. Ác-hen-ti-na
+B. Bra-xin
+C. Mê-hi-cô
+D. Chi-lê (13232 USD)
+Đáp án: D
+
+Mỹ La-tinh bắt đầu tiến hành công nghiệp hoá vào thời gian nào?
+A. Thế kỉ XVII
+B. Thế kỉ XVIII
+C. Thế kỉ XIX
+D. Thập niên 1990
+Đáp án: C
+
+Tốc độ tăng trưởng GDP của Mỹ La-tinh thường xuyên biến động chủ yếu do:
+A. Phụ thuộc nước ngoài (vốn, công nghệ, thị trường) và bất ổn chính trị.
+B. Thiếu lực lượng lao động sản xuất.
+C. Cạn kiệt hoàn toàn tài nguyên thiên nhiên.
+D. Thiếu liên kết thương mại với Bắc Mỹ.
+Đáp án: A
+
+Năm 2020, tốc độ tăng GDP của khu vực Mỹ La-tinh giảm xuống mức âm là bao nhiêu %?
+A. -2,5%
+B. -4,1%
+C. -6,7%
+D. -8,0%
+Đáp án: C
+
+Từ thập niên 1990 đến nay, các nước Mỹ La-tinh thực hiện chuyển dịch kinh tế sang:
+A. Nền kinh tế kế hoạch hóa tập trung.
+B. Nền kinh tế thị trường.
+C. Nền kinh tế đóng cửa.
+D. Nền kinh tế tự cung tự cấp.
+Đáp án: B
+
+Trong cơ cấu GDP Mỹ La-tinh giai đoạn 1990 - 2020, ngành kinh tế nào chiếm tỷ trọng cao nhất?
+A. Nông nghiệp, lâm nghiệp và thủy sản.
+B. Công nghiệp và xây dựng.
+C. Dịch vụ.
+D. Thuế sản phẩm.
+Đáp án: C
+
+Tỉ trọng ngành dịch vụ trong GDP Mỹ La-tinh năm 2020 đạt:
+A. 32,4%
+B. 28,3%
+C. 60,3%
+D. 6,5%
+Đáp án: C
+
+Tỉ trọng ngành nông nghiệp, lâm nghiệp và thủy sản trong cơ cấu GDP năm 2020 của Mỹ La-tinh là:
+A. 6,5%
+B. 28,3%
+C. 60,3%
+D. 10,4%
+Đáp án: A
+
+Cơ cấu cây trồng của Mỹ La-tinh đa dạng gồm có:
+A. Cây lương thực, cây công nghiệp và cây ăn quả.
+B. Cây lương thực ôn đới và rau mầm.
+C. Chỉ duy nhất cây công nghiệp dài ngày.
+D. Cây lấy củ và cây dại.
+Đáp án: A
+
+Hai loại cây lương thực chính ở Mỹ La-tinh là:
+A. Ngô và lúa mì.
+B. Lúa nước và khoai tây.
+C. Đại mạch và yến mạch.
+D. Sắn và khoai lang.
+Đáp án: A
+
+Năm 2020, tổng sản lượng lương thực sản xuất tại Mỹ La-tinh đạt hơn:
+A. 100 triệu tấn.
+B. 208 triệu tấn.
+C. 350 triệu tấn.
+D. 500 triệu tấn.
+Đáp án: B
+
+Các cây công nghiệp thế mạnh nổi bật nhất của Mỹ La-tinh bao gồm:
+A. Cà phê, ca cao, đậu tương, mía, thuốc lá, bông, cao su.
+B. Chè, củ cải đường, dâu tằm, vừng.
+C. Cọ dầu, hạt tiêu, hồi, quế.
+D. Oải hương, ô liu, nho ôn đới.
+Đáp án: A
+
+Vật nuôi chủ yếu ở khu vực Mỹ La-tinh là:
+A. Bò và gia cầm.
+B. Trâu và lợn.
+C. Cừu và dê.
+D. Ngựa và lạc đà.
+Đáp án: A
+
+Hiện nay, nông nghiệp Mỹ La-tinh đang phát triển theo hướng:
+A. Chuyên môn hóa và hiện đại hóa (ứng dụng KH-CN).
+B. Du canh du cư quảng canh.
+C. Tự cung tự cấp hộ gia đình.
+D. Giảm tối đa diện tích cây công nghiệp.
+Đáp án: A
+
+Ngành công nghiệp khai khoáng Mỹ La-tinh phát triển mạnh dựa vào:
+A. Nguồn tài nguyên khoáng sản đa dạng, phong phú.
+B. Nguồn vốn đầu tư khổng lồ từ các nước Châu Phi.
+C. Công nghệ khai thác thô sơ giá rẻ.
+D. Nhu cầu tiêu dùng nội địa tăng đột biến.
+Đáp án: A
+
+Mỹ La-tinh đóng góp bao nhiêu % sản lượng Bạc của thế giới?
+A. 21%
+B. 45%
+C. 50%
+D. 65%
+Đáp án: C
+
+Mỹ La-tinh đóng góp bao nhiêu % sản lượng Kẽm của thế giới?
+A. 21%
+B. 35%
+C. 45%
+D. 50%
+Đáp án: A
+
+Các sản phẩm công nghiệp công nghệ cao mà một số nước Mỹ La-tinh đã chế tạo thành công là:
+A. Ô tô, máy bay.
+B. Tàu ngầm hạt nhân.
+C. Điện thoại thông minh cao cấp.
+D. Vệ tinh nhân tạo viễn thông.
+Đáp án: A
+
+Bốn quốc gia có ngành công nghiệp phát triển mạnh nhất Mỹ La-tinh là:
+A. Ác-hen-ti-na, Bra-xin, Chi-lê, Mê-hi-cô.
+B. Ha-i-ti, Cu-ba, U-ru-goay, Pa-na-ma.
+C. Cô-lôm-bi-a, Vê-nê-du-ê-la, Bô-li-vi-a, Pê-ru.
+D. Su-ri-nam, Guy-a-na, Pa-ra-goay, Ê-cu-a-đo.
+Đáp án: A
+
+Lĩnh vực dịch vụ quan trọng nhất trong nền kinh tế đối ngoại ở Mỹ La-tinh là:
+A. Ngoại thương.
+B. Vận tải đường sắt.
+C. Dịch vụ bưu chính.
+D. Tài chính ngân hàng nội địa.
+Đáp án: A
+
+Mặt hàng xuất khẩu chủ yếu của khu vực Mỹ La-tinh là:
+A. Quặng khoáng sản, dầu thô, nông sản nhiệt đới, thịt, sữa.
+B. Máy móc công nghiệp, hóa chất tinh vi.
+C. Linh kiện máy tính, vũ khí quân sự.
+D. Vải vóc, trang thiết bị y tế cao cấp.
+Đáp án: A
+
+Ba đối tác thương mại lớn nhất của Mỹ La-tinh hiện nay là:
+A. Hoa Kỳ, EU, Trung Quốc.
+B. Nhật Bản, Hàn Quốc, ASEAN.
+C. Nga, Ấn Độ, Úc.
+D. Canada, Anh, Châu Phi.
+Đáp án: A
+
+Du lịch Mỹ La-tinh phát triển thu hút đông đảo du khách nhờ có:
+A. Cảnh quan thiên nhiên đa dạng và văn hóa đặc sắc.
+B. Giá cả dịch vụ rẻ nhất thế giới.
+C. Nhiều khu công viên giải trí hiện đại hàng đầu.
+D. Miễn phí thị thực cho tất cả các quốc gia.
+Đáp án: A
+
+Việc khai thác khoáng sản quá mức ở Mỹ La-tinh đang gây ra nguy cơ gì?
+A. Cạn kiệt nguồn tài nguyên thiên nhiên.
+B. Thừa thãi nguyên liệu thô trong nước.
+C. Suy giảm lượng khách du lịch tới biển.
+D. Tăng nhanh chi phí nhập khẩu nguyên liệu.
+Đáp án: A
+
+Ngành kinh tế đóng góp tỉ trọng lớn nhất vào quy mô GDP Mỹ La-tinh là:
+A. Dịch vụ
+B. Công nghiệp
+C. Nông nghiệp
+D. Thủy sản
+Đáp án: A
+
+Tình trạng phụ thuộc vào nguồn vốn và thị trường nước ngoài tác động thế nào đến Mỹ La-tinh?
+A. Làm cho sự tăng trưởng kinh tế dễ bị tổn thương và thiếu ổn định.
+B. Giúp nền kinh tế luôn duy trì tốc độ tăng trưởng cao.
+C. Xóa bỏ hoàn toàn tình trạng đói nghèo.
+D. Thúc đẩy độc lập tự chủ kinh tế tuyệt đối.
+Đáp án: A
+
+Mục tiêu cốt lõi trong chính sách phát triển kinh tế Mỹ La-tinh hiện nay là:
+A. Đẩy mạnh hiện đại hóa, tăng tính tự chủ và phát triển bền vững.
+B. Tập trung khai thác triệt để tài nguyên khoáng sản.
+C. Cắt giảm hợp tác kinh tế quốc tế.
+D. Ngừng đầu tư cho ngành dịch vụ và du lịch.
+Đáp án: A`;
+const $=id=>document.getElementById(id);
+$('src').value=SAMPLE;
+let bank=[],run=[],i=0,res=[],t0=0,timer=null,exam=false;
+
+function shuffle(a){a=a.slice();for(let k=a.length-1;k>0;k--){const j=Math.floor(Math.random()*(k+1));[a[k],a[j]]=[a[j],a[k]]}return a}
+function parse(txt){
+  return txt.replace(/\r/g,'').split(/\n\s*\n/).map(b=>{
+    const ls=b.split('\n').map(s=>s.trim()).filter(Boolean);
+    let q=[],opts=[],ans=null;
+    ls.forEach(l=>{
+      let m=l.match(/^(?:đáp án|dap an|answer|đ\/a)\s*[:：]?\s*([A-Da-d])/i);
+      if(m){ans=m[1].toUpperCase();return}
+      m=l.match(/^([A-Da-d])\s*[\.\):]\s*(.+)$/);
+      if(m){opts.push({k:m[1].toUpperCase(),t:m[2]});return}
+      if(!opts.length)q.push(l);
     });
-    sourceNodes.forEach(node => node.remove());
-
-    const shuffle = items => {
-        for (let i = items.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [items[i], items[j]] = [items[j], items[i]];
-        }
-        return items;
-    };
-
-    let answeredCount = 0;
-    let correctCount = 0;
-    let audioContext;
-    const totalQuestions = sections.reduce((sum, section) => sum + section.questions.length, 0);
-    const progress = document.getElementById('progress');
-    const result = document.getElementById('result');
-
-    function playFeedback(isCorrect) {
-        try {
-            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-            if (!AudioContextClass) return;
-            audioContext ||= new AudioContextClass();
-            if (audioContext.state === 'suspended') audioContext.resume();
-            const oscillator = audioContext.createOscillator();
-            const gain = audioContext.createGain();
-            oscillator.type = 'sine';
-            oscillator.frequency.value = isCorrect ? 660 : 220;
-            gain.gain.setValueAtTime(0.12, audioContext.currentTime);
-            gain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.22);
-            oscillator.connect(gain);
-            gain.connect(audioContext.destination);
-            oscillator.start();
-            oscillator.stop(audioContext.currentTime + 0.22);
-        } catch (error) {
-            // Sound is optional; quiz feedback still works if audio is unavailable.
-        }
-    }
-
-    function updateProgress() {
-        progress.textContent = `Đã trả lời: ${answeredCount}/${totalQuestions}`;
-        if (answeredCount === totalQuestions) {
-            const wrongCount = totalQuestions - correctCount;
-            result.innerHTML = `<strong>Hoàn thành!</strong><br>Đúng: ${correctCount} câu &nbsp;|&nbsp; Sai: ${wrongCount} câu`;
-            result.hidden = false;
-        }
-    }
-
-    function renderQuiz() {
-        answeredCount = 0;
-        correctCount = 0;
-        result.hidden = true;
-        result.textContent = '';
-        quizContent.replaceChildren();
-
-        sections.forEach(section => {
-            const heading = document.createElement('div');
-            heading.className = 'section-title';
-            heading.textContent = section.title;
-            quizContent.append(heading);
-
-            const questions = [...section.questions];
-            if (document.getElementById('shuffle-questions').checked) shuffle(questions);
-
-            questions.forEach(question => {
-                const questionBox = document.createElement('div');
-                questionBox.className = 'quiz-question';
-                const prompt = document.createElement('div');
-                prompt.className = 'question-text';
-                prompt.textContent = question.prompt;
-                const optionList = document.createElement('div');
-                optionList.className = 'quiz-options';
-                const feedback = document.createElement('div');
-                feedback.className = 'answer-feedback';
-                feedback.setAttribute('aria-live', 'polite');
-
-                const choices = [...question.choices];
-                if (document.getElementById('shuffle-options').checked) shuffle(choices);
-                const correctIndex = choices.findIndex(choice => choice.correct);
-
-                choices.forEach((choice, index) => {
-                    const optionButton = document.createElement('button');
-                    optionButton.type = 'button';
-                    optionButton.className = 'quiz-option';
-                    optionButton.textContent = `${String.fromCharCode(65 + index)}. ${choice.text}`;
-                    optionButton.addEventListener('click', () => {
-                        if (optionButton.disabled) return;
-                        answeredCount++;
-                        const isCorrect = choice.correct;
-                        if (isCorrect) {
-                            correctCount++;
-                            feedback.textContent = 'Chính xác!';
-                        } else {
-                            const correctLetter = String.fromCharCode(65 + correctIndex);
-                            feedback.textContent = `Chưa đúng. Đáp án đúng: ${correctLetter}. ${choices[correctIndex].text}`;
-                        }
-                        choices.forEach((item, choiceIndex) => {
-                            const button = optionList.children[choiceIndex];
-                            button.disabled = true;
-                            if (item.correct) button.classList.add('correct');
-                            else if (item === choice) button.classList.add('incorrect');
-                        });
-                        playFeedback(isCorrect);
-                        updateProgress();
-                    });
-                    optionList.append(optionButton);
-                });
-
-                questionBox.append(prompt, optionList, feedback);
-                quizContent.append(questionBox);
-            });
-        });
-        updateProgress();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    document.getElementById('reset-quiz').addEventListener('click', renderQuiz);
-    renderQuiz();
-})();
+    if(!q.length||opts.length<2||!ans||!opts.some(o=>o.k===ans))return null;
+    return{q:q.join(' '),o:opts.map(o=>({t:o.t,ok:o.k===ans}))};
+  }).filter(Boolean);
+}
+function start(list){
+  exam=$('auto').checked;
+  run=(($('shQ').checked)?shuffle(list):list.slice()).map(x=>({q:x.q,o:$('shA').checked?shuffle(x.o):x.o.slice(),src:x}));
+  res=[];i=0;t0=Date.now();
+  $('setup').classList.add('hide');$('res').classList.add('hide');$('quiz').classList.remove('hide');$('ft').classList.remove('hide');upd();
+  clearInterval(timer);timer=setInterval(tick,1000);tick();show();
+}
+function tick(){const s=Math.floor((Date.now()-t0)/1000),t=String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');$('tm').textContent='⏱ '+t;$('fT').textContent=t}
+function upd(){const ok=res.filter(r=>r.ok).length,no=res.filter(r=>r&&!r.ok).length;$('fOk').textContent=ok;$('fNo').textContent=no;$('fLeft').textContent=run.length-ok-no}
+function show(){
+  const q=run[i];
+  $('prog').textContent='Câu '+(i+1)+' / '+run.length;
+  $('pb').style.width=(i/run.length*100)+'%';
+  $('qt').textContent=q.q;$('fb').textContent='';$('fb').className='fb';
+  $('nx').disabled=true;$('nx').textContent=i===run.length-1?'Xem kết quả':'Câu tiếp';
+  const box=$('opts');box.innerHTML='';
+  q.o.forEach((o,k)=>{
+    const b=document.createElement('button');b.className='opt';
+    b.innerHTML='<b>'+'ABCD'[k]+'.</b><span></span>';b.lastChild.textContent=o.t;
+    b.onclick=()=>pick(k);box.appendChild(b);
+  });
+}
+function pick(k){
+  const q=run[i],right=q.o.findIndex(o=>o.ok),bs=[...$('opts').children];
+  res[i]={pick:k,right,ok:k===right};
+  bs.forEach(b=>b.disabled=true);
+  if(exam){bs[k].classList.add('ok');bs[k].style.borderColor='var(--pr)';bs[k].classList.remove('ok')}
+  else{
+    bs[right].classList.add('ok');
+    if(k!==right)bs[k].classList.add('no');
+    $('fb').textContent=k===right?'✔ Chính xác!':'✘ Sai rồi. Đáp án đúng là '+'ABCD'[right]+'.';
+    $('fb').classList.add(k===right?'ok':'no');
+  }
+  $('nx').disabled=false;upd();
+}
+$('nx').onclick=()=>{i++;i<run.length?show():finish()};
+function finish(){
+  clearInterval(timer);
+  const sec=Math.floor((Date.now()-t0)/1000),n=run.length,ok=res.filter(r=>r.ok).length,pct=Math.round(ok/n*100);
+  $('quiz').classList.add('hide');$('res').classList.remove('hide');
+  $('pc').textContent=ok+' / '+n+' ('+pct+'%)';
+  $('verdict').textContent=pct>=80?'Xuất sắc! 🎉':pct>=50?'Khá ổn, cố thêm chút nữa nhé 💪':'Cần ôn lại thêm 📚';
+  const mm=Math.floor(sec/60)+' phút '+sec%60+' giây';
+  $('stats').innerHTML=[['Tổng số câu',n],['Đúng ✔',ok],['Sai ✘',n-ok],['Tỉ lệ đúng',pct+'%'],['Thời gian',mm],['TB mỗi câu',(sec/n).toFixed(1)+' giây']]
+    .map(s=>'<div class="st"><strong>'+s[1]+'</strong><span class="mu">'+s[0]+'</span></div>').join('');
+  const rv=$('review');rv.innerHTML='';
+  run.forEach((q,k)=>{
+    const r=res[k],d=document.createElement('div');d.className='rv';
+    const h=document.createElement('div');h.innerHTML='<b>Câu '+(k+1)+'.</b> ';h.append(q.q);
+    const a=document.createElement('div');a.className='fb '+(r.ok?'ok':'no');
+    a.textContent=(r.ok?'✔ Đúng: ':'✘ Bạn chọn '+'ABCD'[r.pick]+'. '+q.o[r.pick].t+' — Đáp án đúng: ')+'ABCD'[r.right]+'. '+q.o[r.right].t;
+    d.append(h,a);rv.appendChild(d);
+  });
+  $('wrongOnly').disabled=ok===n;tick();upd();
+  window.scrollTo(0,0);
+}
+$('go').onclick=()=>{
+  bank=parse($('src').value);
+  if(!bank.length){$('msg').textContent='Không đọc được câu hỏi nào, hãy kiểm tra định dạng.';return}
+  $('msg').textContent='';start(bank);
+};
+$('again').onclick=()=>start(bank);
+$('wrongOnly').onclick=()=>start(run.filter((q,k)=>!res[k].ok).map(q=>q.src));
+$('home').onclick=()=>{$('ft').classList.add('hide');$('res').classList.add('hide');$('setup').classList.remove('hide')};
+$('quit').onclick=()=>{if(confirm('Thoát bài làm hiện tại?')){clearInterval(timer);$('ft').classList.add('hide');$('quiz').classList.add('hide');$('setup').classList.remove('hide')}};
 </script>
-
 </body>
 </html>
-```eof
-
